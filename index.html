@@ -8,87 +8,105 @@
     <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="stars-container"></div>
+    
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <img src="foto.jpg" alt="Profile Photo" class="profile-pic">
-            <h1>Vanda Sekar Annisa</h1>
-            <p>Astronomy Graduate | Data Enthusiast</p>
-            <div class="social-links">
-                <a href="https://github.com/vanseann" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/vanda-sekar-annisa" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:vandasekarannisa@gmail.com"><i class="fas fa-envelope"></i></a>
+        <header class="header">
+            <div class="header-left">
+                <img src="foto.jpg" alt="Vanda Sekar Annisa" class="profile-photo">
             </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="content">
-            <section class="about">
-                <h2>About Me</h2>
-                <p>
-                    I am a fresh graduate of Astronomy from Institut Teknologi Bandung with a strong foundation 
-                    in data analysis, scientific research, and programming. I am eager to apply my skills 
-                    in data processing, visualization, and interpretation to contribute to impactful projects.
-                </p>
-            </section>
-
-            <section class="experience">
-                <h2>Experience</h2>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Research Assistant</div>
-                            <div class="item-company">Institut Teknologi Bandung</div>
-                            <div class="item-location">Bandung, Indonesia</div>
-                        </div>
-                        <div class="item-date">Feb 2024 - Nov 2024</div>
-                    </div>
-                    <ul class="item-details">
-                        <li>Topic: Revisiting the X-ray Scaling Method: The Difference in Scaling Parameters Between Rise and Decay Phases of an Outburst</li>
-                        <li>Performed spectrum fitting on three BHXT objects, conducted reference object studies, and analyzed BHXT data</li>
-                        <li>Presented the research at International Conference on Space Science, Technology and Innovation (ICSSTI) 2024</li>
-                    </ul>
-                    <!-- GitHub Project Link -->
-                    <a href="https://github.com/vanseann/fitting" class="mini-button" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
+            <div class="header-right">
+                <h1 class="name">Vanda Sekar Annisa</h1>
+                <p class="title">Astronomy Graduate | Data Enthusiast</p>
+                <div class="contact-info">
+                    <a href="https://github.com/vanseann" target="_blank" class="contact-item">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/vanda-sekar-annisa" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="mailto:vandasekarannisa@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> vandasekarannisa@gmail.com
                     </a>
                 </div>
+            </div>
+        </header>
 
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Teaching Assistant</div>
-                            <div class="item-company">Institut Teknologi Bandung</div>
-                            <div class="item-location">Bandung, Indonesia</div>
-                        </div>
-                        <div class="item-date">2022 - 2023</div>
+        <section class="section">
+            <h2 class="section-title">About Me</h2>
+            <p class="summary-text">
+                I am a fresh graduate of Astronomy from Institut Teknologi Bandung with a strong foundation in data analysis, scientific research, and programming. I am eager to apply my skills in data processing, visualization, and interpretation to contribute to impactful projects.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Research Assistant</div>
+                        <div class="item-company">Institut Teknologi Bandung</div>
+                        <div class="item-location">Bandung, Indonesia</div>
                     </div>
-                    <ul class="item-details">
-                        <li>Guided undergraduate students in courses: Introduction to Astronomy and Stellar Structure</li>
-                        <li>Assisted in grading, discussions, and academic support</li>
-                    </ul>
+                    <div class="item-date">Feb 2024 - Nov 2024</div>
                 </div>
-            </section>
-
-            <section class="skills">
-                <h2>Skills</h2>
-                <ul>
-                    <li>Data Analysis</li>
-                    <li>Python (NumPy, Pandas, Matplotlib, Astropy)</li>
-                    <li>Statistical Modeling</li>
-                    <li>Scientific Writing</li>
-                    <li>LaTeX</li>
+                <ul class="item-details">
+                    <li>Topic: Revisiting the X-ray Scaling Method: The Difference in Scaling Parameters Between Rise and Decay Phases of an Outburst</li>
+                    <li>Performed spectrum fitting on three BHXT objects, conducted reference object studies, and analyzed BHXT data</li>
+                    <li>Presented the research at International Conference on Space Science, Technology and Innovation (ICSSTI) 2024</li>
                 </ul>
-            </section>
+            </div>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Teaching Assistant</div>
+                        <div class="item-company">Institut Teknologi Bandung</div>
+                        <div class="item-location">Bandung, Indonesia</div>
+                    </div>
+                    <div class="item-date">2022 - 2023</div>
+                </div>
+                <ul class="item-details">
+                    <li>Guided undergraduate students in courses: Introduction to Astronomy and Stellar Structure</li>
+                    <li>Assisted in grading, discussions, and academic support</li>
+                </ul>
+            </div>
+        </section>
 
-            <section class="contact">
-                <h2>Let's Connect</h2>
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Python (NumPy, Pandas, Matplotlib, Astropy)</span>
+                        <span class="skill-tag">Statistical Modeling</span>
+                        <span class="skill-tag">LaTeX</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Scientific Writing</span>
+                        <span class="skill-tag">Research</span>
+                        <span class="skill-tag">Problem-Solving</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">Let's Connect</h2>
+            <p class="cta-subtitle">I'm currently seeking opportunities and would love to hear from you.</p>
+            <div class="cta-buttons">
                 <a href="mailto:vandasekarannisa@gmail.com" class="cta-button">
                     <i class="fas fa-envelope"></i> Contact Me
                 </a>
-            </section>
-        </main>
+                <a href="https://linkedin.com/in/vanda-sekar-annisa" target="_blank" class="cta-button">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </section>
     </div>
 </body>
 </html>
