@@ -88,19 +88,16 @@ body {
 
 /* Kiri: Foto */
 .header-left {
-  flex: 0 0 50%;             /* fix lebar kiri 40% */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex: 1;               /* otomatis isi separuh */
+  min-width: 50%;        /* pastiin setengah layar */
+  height: 100vh;         /* tinggi full layar */
 }
 
-.profile-img {
+.profile-img,
+.profile-photo {
   width: 100%;
   height: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(25, 25, 112, 0.4);
-  position: relative;
+  object-fit: cover;     /* biar foto isi penuh */
 }
 
 .profile-photo {
