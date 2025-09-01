@@ -1,9 +1,11 @@
+/* ========== RESET ========== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ========== BODY ========== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -11,11 +13,13 @@ body {
     background: linear-gradient(135deg, #87CEFA, #4682B4);
 }
 
+/* ========== LAYOUT CONTAINER ========== */
 .container {
     display: flex;
     min-height: 100vh;
 }
 
+/* ========== SIDEBAR ========== */
 .sidebar {
     width: 30%;
     background: #fff;
@@ -40,6 +44,7 @@ body {
     color: #666;
 }
 
+/* ========== SOSIAL MEDIA ========== */
 .social-links {
     margin-top: 1rem;
 }
@@ -55,6 +60,7 @@ body {
     color: #191970;
 }
 
+/* ========== CONTENT ========== */
 .content {
     width: 70%;
     padding: 2rem;
@@ -75,6 +81,7 @@ h2 {
     padding-bottom: 5px;
 }
 
+/* ========== EXPERIENCE ITEM ========== */
 .experience-item {
     margin-bottom: 1.5rem;
     padding: 1rem;
@@ -115,7 +122,7 @@ h2 {
     list-style: disc;
 }
 
-/* CTA Button */
+/* ========== CTA BUTTON BESAR ========== */
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -136,7 +143,7 @@ h2 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* Mini Button (untuk GitHub project link) */
+/* ========== MINI BUTTON (untuk link GitHub, dll) ========== */
 .mini-button {
     display: inline-flex;
     align-items: center;
