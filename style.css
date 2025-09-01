@@ -322,4 +322,177 @@ body {
 .skill-tag {
     background: linear-gradient(45deg, #4169E1, #191970);
     color: white;
-    padding: 10px 18px
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
+    background: linear-gradient(45deg, #191970, #4169E1);
+}
+
+/* Call to Action Section */
+.cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, #4169E1, #191970);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(25, 25, 112, 0.3);
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="star" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:white;stop-opacity:0.8"/><stop offset="100%" style="stop-color:white;stop-opacity:0"/></radialGradient></defs><circle cx="20" cy="30" r="1" fill="url(%23star)"/><circle cx="80" cy="20" r="0.5" fill="url(%23star)"/><circle cx="60" cy="70" r="0.8" fill="url(%23star)"/></svg>') repeat;
+    opacity: 0.3;
+    animation: starMove 20s linear infinite;
+}
+
+@keyframes starMove {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-100px) translateY(-100px); }
+}
+
+.cta-title {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 30px 20px;
+    }
+
+    .name {
+        font-size: 2.5em;
+    }
+
+    .section {
+        padding: 30px 20px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .contact-item {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-title {
+        font-size: 2em;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 25px 15px;
+    }
+
+    .section {
+        padding: 25px 15px;
+    }
+
+    .name {
+        font-size: 2.2em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        font-size: 50px;
+    }
+
+    .skill-tags {
+        gap: 8px;
+    }
+
+    .skill-tag {
+        padding: 8px 14px;
+        font-size: 0.85em;
+    }
+}
