@@ -73,11 +73,13 @@ body {
     border-radius: 20px;
     padding: 40px;
     margin-bottom: 30px;
-    text-align: center;
     box-shadow: 0 20px 40px rgba(25, 25, 112, 0.2);
     transform: translateY(0);
     transition: transform 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .header:hover {
@@ -85,19 +87,28 @@ body {
     box-shadow: 0 25px 50px rgba(25, 25, 112, 0.3);
 }
 
+.header-left {
+    flex-shrink: 0;
+}
+
+.header-right {
+    flex: 1;
+    text-align: left;
+}
+
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
     background: linear-gradient(45deg, #4169E1, #191970);
-    margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 60px;
     color: white;
-    box-shadow: 0 10px 30px rgba(25, 25, 112, 0.3);
+    box-shadow: 0 15px 40px rgba(25, 25, 112, 0.4);
     position: relative;
+    overflow: hidden;
 }
 
 .profile-photo {
@@ -139,41 +150,43 @@ body {
 }
 
 .name {
-    font-size: 3em;
+    font-size: 3.5em;
     font-weight: 700;
     background: linear-gradient(45deg, #4169E1, #191970);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    line-height: 1.1;
 }
 
 .title {
-    font-size: 1.3em;
+    font-size: 1.5em;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .contact-info {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: #333;
     text-decoration: none;
-    padding: 12px 20px;
+    padding: 15px 25px;
     border-radius: 25px;
     background: rgba(65, 105, 225, 0.1);
     transition: all 0.3s ease;
     border: 2px solid rgba(65, 105, 225, 0.2);
-    font-size: 0.95em;
+    font-size: 1em;
+    width: 100%;
+    max-width: 350px;
 }
 
 .contact-item:hover {
@@ -439,42 +452,46 @@ body {
 
     .header {
         padding: 30px 20px;
-    }
-
-    .header-content {
         flex-direction: column;
         text-align: center;
         gap: 30px;
     }
 
-    .profile-img {
-        width: 180px;
-        height: 180px;
-        margin: 0 auto;
-    }
-
-    .header-info {
-        align-items: center;
-    }
-
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
+    .header-left {
         width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-right {
+        text-align: center;
+        width: 100%;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
     }
 
     .name {
         font-size: 2.5em;
     }
 
-    .section {
-        padding: 30px 20px;
+    .title {
+        font-size: 1.3em;
+    }
+
+    .contact-info {
+        align-items: center;
     }
 
     .contact-item {
-        width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         justify-content: center;
+    }
+
+    .section {
+        padding: 30px 20px;
     }
 
     .item-header {
@@ -519,8 +536,8 @@ body {
     }
 
     .profile-img {
-        width: 120px;
-        height: 120px;
+        width: 160px;
+        height: 160px;
         font-size: 50px;
     }
 
