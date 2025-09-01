@@ -1,20 +1,39 @@
+/* ==================================== */
+/*         GLOBAL & UTILITY STYLES     */
+/* ==================================== */
+
+/* Mengatur ulang margin, padding, dan box-sizing untuk semua elemen */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Mengatur font, warna, dan background pada body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+    /* Gradien latar belakang untuk efek langit malam */
     background: linear-gradient(135deg, #87CEEB 0%, #4169E1 50%, #191970 100%);
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Stars Animation */
+/* Container utama untuk membatasi lebar konten */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* -------------------- */
+/*     STARS ANIMATION   */
+/* -------------------- */
+
 .stars-container {
     position: fixed;
     top: 0;
@@ -57,142 +76,98 @@ body {
     }
 }
 
-/* Main Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-}
+/* ==================================== */
+/*              HEADER SECTION         */
+/* ==================================== */
 
-/* Header Styles */
 .header {
-  display: flex;
-  gap: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 40px;
-  margin-bottom: 30px;
-  box-shadow: 0 20px 40px rgba(25, 25, 112, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  align-items: stretch;       /* foto & teks sama tinggi */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(25, 25, 112, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    align-items: stretch; /* Memastikan kolom sama tinggi */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 50px rgba(25, 25, 112, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(25, 25, 112, 0.3);
 }
 
-/* Kiri: Foto */
 .header-left {
-  flex: 1;               /* otomatis isi separuh */
-  min-width: 50%;        /* pastiin setengah layar */
-  height: 100vh;         /* tinggi full layar */
+    flex: 1; /* Alokasi ruang secara proporsional */
+    min-width: 50%; /* Memastikan tidak kurang dari 50% */
 }
 
+/* Menggabungkan .profile-img dan .profile-photo untuk menghindari duplikasi */
 .profile-img,
 .profile-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* biar foto isi penuh */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Menghapus spasi di bawah gambar */
 }
 
-.profile-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;         /* isi penuh, crop rapi */
-  display: block;
-}
-
-/* Kanan: Info */
 .header-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .name {
-  font-size: 3em;
-  font-weight: 700;
-  background: linear-gradient(45deg, #4169E1, #191970);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 15px;
+    font-size: 3em;
+    font-weight: 700;
+    background: linear-gradient(45deg, #4169E1, #191970);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
 }
 
 .title {
-  font-size: 1.5em;
-  color: #555;
-  margin-bottom: 30px;
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 30px;
 }
 
 .contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .contact-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #333;
-  text-decoration: none;
-  padding: 15px 25px;
-  border-radius: 25px;
-  background: rgba(65, 105, 225, 0.1);
-  transition: all 0.3s ease;
-  border: 2px solid rgba(65, 105, 225, 0.2);
-  font-size: 1em;
-  max-width: 350px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    background: rgba(65, 105, 225, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(65, 105, 225, 0.2);
+    font-size: 1em;
+    max-width: 350px;
 }
 
 .contact-item:hover {
-  background: rgba(65, 105, 225, 0.2);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(65, 105, 225, 0.3);
-  border-color: rgba(65, 105, 225, 0.4);
+    background: rgba(65, 105, 225, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.3);
+    border-color: rgba(65, 105, 225, 0.4);
 }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 900px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
+/* ==================================== */
+/*      SECTION STYLES (SUMMARY, ETC.)  */
+/* ==================================== */
 
-  .header-left {
-    flex: unset;
-    width: 100%;
-  }
-
-  .profile-img {
-    height: 300px; /* fix tinggi di layar kecil */
-  }
-
-  .header-right {
-    margin-top: 20px;
-    align-items: center;
-  }
-
-  .contact-info {
-    align-items: center;
-  }
-
-  .contact-item {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-  }
-}
-
-
-/* Section Styles */
 .section {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
@@ -200,8 +175,7 @@ body {
     padding: 40px;
     margin-bottom: 30px;
     box-shadow: 0 20px 40px rgba(25, 25, 112, 0.15);
-    transform: translateY(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -237,7 +211,11 @@ body {
     text-align: justify;
 }
 
-/* Education and Experience Items */
+/* -------------------- */
+/*   EDU & EXP ITEMS   */
+/* -------------------- */
+
+/* Menggabungkan .education-item dan .experience-item */
 .education-item, .experience-item {
     margin-bottom: 30px;
     padding: 25px;
@@ -312,7 +290,10 @@ body {
     font-size: 12px;
 }
 
-/* Skills Section */
+/* -------------------- */
+/*     SKILLS SECTION   */
+/* -------------------- */
+
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -366,7 +347,10 @@ body {
     background: linear-gradient(45deg, #191970, #4169E1);
 }
 
-/* Call to Action Section */
+/* -------------------- */
+/*      CTA SECTION     */
+/* -------------------- */
+
 .cta-section {
     text-align: center;
     background: linear-gradient(135deg, #4169E1, #191970);
@@ -386,6 +370,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+    /* Efek bintang dengan SVG untuk efisiensi */
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="star" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:white;stop-opacity:0.8"/><stop offset="100%" style="stop-color:white;stop-opacity:0"/></radialGradient></defs><circle cx="20" cy="30" r="1" fill="url(%23star)"/><circle cx="80" cy="20" r="0.5" fill="url(%23star)"/><circle cx="60" cy="70" r="0.8" fill="url(%23star)"/></svg>') repeat;
     opacity: 0.3;
     animation: starMove 20s linear infinite;
@@ -440,41 +425,35 @@ body {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
+/* ==================================== */
+/*       RESPONSIVE DESIGN (MEDIA QUERIES)     */
+/* ==================================== */
 
+/* Perbaikan logika media query agar lebih efisien */
+@media (max-width: 900px) {
     .header {
-        padding: 30px 20px;
         flex-direction: column;
         text-align: center;
-        gap: 30px;
+        gap: 20px; /* Menyesuaikan gap untuk tampilan mobile */
+        padding: 30px; /* Menyesuaikan padding */
     }
 
     .header-left {
+        flex: none; /* Menghilangkan alokasi flex */
         width: 100%;
         display: flex;
         justify-content: center;
     }
 
-    .header-right {
-        text-align: center;
-        width: 100%;
-    }
-
-    .profile-img {
-        width: 200px;
+    .profile-img, .profile-photo {
+        width: 200px; /* Ukuran tetap untuk gambar profil */
         height: 200px;
+        border-radius: 50%; /* Membuat gambar menjadi lingkaran */
     }
 
-    .name {
-        font-size: 2.5em;
-    }
-
-    .title {
-        font-size: 1.3em;
+    .header-right {
+        align-items: center;
+        margin-top: 0;
     }
 
     .contact-info {
@@ -482,12 +461,33 @@ body {
     }
 
     .contact-item {
-        max-width: 300px;
+        width: 100%;
+        max-width: 280px;
         justify-content: center;
     }
 
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
     .section {
         padding: 30px 20px;
+    }
+
+    .name {
+        font-size: 2.5em;
+    }
+    
+    .title {
+        font-size: 1.3em;
     }
 
     .item-header {
@@ -496,7 +496,7 @@ body {
     }
 
     .skills-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Mengubah tata letak menjadi satu kolom */
     }
 
     .cta-title {
@@ -504,13 +504,7 @@ body {
     }
 
     .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cta-button {
-        width: 100%;
-        max-width: 250px;
+        gap: 15px;
     }
 }
 
@@ -530,11 +524,10 @@ body {
     .section-title {
         font-size: 1.8em;
     }
-
-    .profile-img {
+    
+    .profile-img, .profile-photo {
         width: 160px;
         height: 160px;
-        font-size: 50px;
     }
 
     .skill-tags {
