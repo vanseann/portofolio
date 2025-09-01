@@ -1,320 +1,552 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanda Sekar Annisa - Data Scientist & Master of Science</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-</head>
-<body>
-    <div class="stars-container" id="stars"></div>
-    
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="header-left">
-                <div class="profile-img">
-                    <img src="images/foto-sidang.jpg" alt="Vanda Sekar Annisa" class="profile-photo">
-                </div>
-            </div>
-            <div class="header-right">
-                <h1 class="name">Vanda Sekar Annisa</h1>
-                <p class="title">Data Scientist & Astronomer</p>
-                
-                <div class="contact-info">
-                    <a href="tel:+6281257231667" class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        (+62) 812-5723-1667
-                    </a>
-                    <a href="mailto:vanda.sekar272@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        vanda.sekar272@gmail.com
-                    </a>
-                    <a href="https://linkedin.com/in/vanseann272" class="contact-item" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        LinkedIn Profile
-                    </a>
-                </div>
-            </div>
-        </div>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #87CEEB 0%, #4169E1 50%, #191970 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
 
-        <!-- Summary Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
-            <p class="summary-text">
-                Master of Science in Astronomy from Institut Teknologi Bandung with a strong foundation in data analysis, Python programming, and scientific research. Passionate about solving complex problems, deriving insights from data, and continuously exploring new tools, concepts, and technologies. Experienced in teaching, collaborative research, and astronomical data processing. Actively seeking opportunities in data science, analytics, and applied computational research.
-            </p>
-        </div>
+/* Stars Animation */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
 
-        <!-- Education Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-            
-            <div class="education-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Master of Science in Astronomy</div>
-                        <div class="item-company">Institut Teknologi Bandung (ITB)</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Expected Aug 2025</div>
-                </div>
-                <ul class="item-details">
-                    <li>Focus: Data Analysis in Stellar and High-Energy Astrophysics</li>
-                    <li>GPA: 3.93/4.00</li>
-                </ul>
-            </div>
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.4);
+}
 
-            <div class="education-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Bachelor of Science in Astronomy</div>
-                        <div class="item-company">Institut Teknologi Bandung (ITB)</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Graduated Oct 2024</div>
-                </div>
-                <ul class="item-details">
-                    <li>Relevant coursework: Statistical Methods, Programming in Python, Computational Astrophysics</li>
-                    <li>GPA: 3.36/4.00; Dean's List (6th and 7th semester)</li>
-                </ul>
-            </div>
-        </div>
+.star::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    border-radius: 50%;
+}
 
-        <!-- Experience Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
-            
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Research Assistant</div>
-                        <div class="item-company">Institut Teknologi Bandung</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Feb 2024 - Nov 2024</div>
-                </div>
-                <ul class="item-details">
-                    <li>Topic: Revisiting the X-ray Scaling Method: The Difference in Scaling Parameters Between Rise and Decay Phases of an Outburst</li>
-                    <li>Performed spectrum fitting on three BHXT objects, conducted reference object studies, and analyzed BHXT data</li>
-                    <li>Presented the research at International Conference on Space Science, Technology and Innovation (ICSSTI) 2024</li>
-                </ul>
-                <a href="https://github.com/vanseann/fitting" class="github-button" target="_blank">
-                    <i class="fab fa-github"></i> View Project on GitHub
-                </a>
-            </div>
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Freelance Math Tutor for High School</div>
-                        <div class="item-company">Ask.Edu</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Apr 2024 - Present</div>
-                </div>
-                <ul class="item-details">
-                    <li>Tutored 3 students in preparation for the quantitative knowledge and mathematical reasoning sections of the UTBK</li>
-                </ul>
-            </div>
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Teaching Assistant and Academic Mentor</div>
-                        <div class="item-company">Institut Teknologi Bandung</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Jan 2023 - Present</div>
-                </div>
-                <ul class="item-details">
-                    <li>Tutored and mentored over 250 undergraduate students in courses involving statistics, numerical methods, and scientific programming</li>
-                    <li>Provided academic support through discussion sessions, assignment review, and hands-on guidance in Python-based computational tasks</li>
-                    <li>Assisted lecturers in managing coursework logistics, grading, and student engagement across lectures, labs, and project-based learning</li>
-                    <li>Contributed to collaborative learning projects, including light pollution research and observational training with astronomical instruments</li>
-                </ul>
-            </div>
+/* Header Styles */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(25, 25, 112, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Secretary General</div>
-                        <div class="item-company">Himpunan Mahasiswa Astronomi ITB</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Mar 2023 - Feb 2024</div>
-                </div>
-                <ul class="item-details">
-                    <li>Led the secretarial division, which supervises the secretary, treasurer, communication and information media, business funds, and household affairs</li>
-                    <li>Oversaw and managed the timeline of Himastron's agenda</li>
-                </ul>
-            </div>
+.header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(25, 25, 112, 0.3);
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Head of Mentor Division</div>
-                        <div class="item-company">Himpunan Mahasiswa Astronomi ITB</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Jun 2022 - Sept 2022</div>
-                </div>
-                <ul class="item-details">
-                    <li>Supervised and guided 11 mentors in Pembinaan Anggota Muda (PAM) 2022</li>
-                    <li>Monitored the progress of young members and provided constructive feedback to help them achieve their goals for the association</li>
-                </ul>
-            </div>
+.header-left {
+    flex-shrink: 0;
+}
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Head of Learning House Division</div>
-                        <div class="item-company">Skhole-ITB Mengajar</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Jun 2022 - May 2023</div>
-                </div>
-                <ul class="item-details">
-                    <li>Led and supervised the learning and teaching activities at Cicaheum Learning House</li>
-                    <li>Developed and implemented the teaching curriculum</li>
-                    <li>Organized the teaching schedule for efficient learning outcomes</li>
-                </ul>
-            </div>
-        </div>
+.header-right {
+    flex: 1;
+    text-align: left;
+}
 
-        <!-- Skills Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-cogs"></i> Skills & Interests</h2>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Technical Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python Programming</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Statistical Methods</span>
-                        <span class="skill-tag">Computational Astrophysics</span>
-                        <span class="skill-tag">Spectrum Fitting</span>
-                        <span class="skill-tag">Scientific Research</span>
-                    </div>
-                </div>
+.profile-img {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #4169E1, #191970);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+    box-shadow: 0 15px 40px rgba(25, 25, 112, 0.4);
+    position: relative;
+    overflow: hidden;
+}
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-laptop"></i> Software & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Microsoft Excel</span>
-                        <span class="skill-tag">Microsoft PowerPoint</span>
-                        <span class="skill-tag">LaTeX</span>
-                        <span class="skill-tag">Canva</span>
-                        <span class="skill-tag">CapCut</span>
-                        <span class="skill-tag">Astronomical Data Processing</span>
-                    </div>
-                </div>
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-heart"></i> Areas of Interest</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Data Science</span>
-                        <span class="skill-tag">Data Analytics</span>
-                        <span class="skill-tag">Observational Astrophysics</span>
-                        <span class="skill-tag">Teaching & Mentoring</span>
-                        <span class="skill-tag">Problem Solving</span>
-                    </div>
-                </div>
+.profile-img::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #87CEEB, #4169E1, #191970);
+    border-radius: 23px;
+    z-index: -1;
+    animation: rotate 3s linear infinite;
+}
 
-                <div class="skill-category">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Teaching</span>
-                        <span class="skill-tag">Leadership</span>
-                        <span class="skill-tag">Collaborative Research</span>
-                        <span class="skill-tag">Academic Mentoring</span>
-                        <span class="skill-tag">Presentation Skills</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+.profile-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 3px;
+    background: linear-gradient(45deg, #87CEEB, #4169E1, #191970);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+}
 
-        <!-- Call to Action -->
-        <div class="cta-section">
-            <h2 class="cta-title">Let's Connect!</h2>
-            <p class="cta-subtitle">Interested in data science, research collaboration, or astronomical insights? Let's discuss how we can work together.</p>
-            <div class="cta-buttons">
-                <a href="mailto:vanda.sekar272@gmail.com" class="cta-button">
-                    <i class="fas fa-envelope"></i> Send Email
-                </a>
-                <a href="https://linkedin.com/in/vanseann272" class="cta-button" target="_blank">
-                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                </a>
-            </div>
-        </div>
-    </div>
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
-    <script>
-        // Create twinkling stars
-        function createParticles() {
-            const particlesContainer = document.getElementById('stars');
-            const numberOfStars = 80;
-            
-            for (let i = 0; i < numberOfStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                particlesContainer.appendChild(star);
-            }
-        }
+.name {
+    font-size: 3.5em;
+    font-weight: 700;
+    background: linear-gradient(45deg, #4169E1, #191970);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
 
-        // Smooth scroll for anchor links (if any)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+.title {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 30px;
+}
 
-        // Add scroll animation for sections
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    background: rgba(65, 105, 225, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(65, 105, 225, 0.2);
+    font-size: 1em;
+    width: 100%;
+    max-width: 350px;
+}
 
-        // Observe all sections for animation
-        document.querySelectorAll('.section, .header').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
+.contact-item:hover {
+    background: rgba(65, 105, 225, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.3);
+    border-color: rgba(65, 105, 225, 0.4);
+}
 
-        // Initialize
-        createParticles();
-        
-        // Show header immediately
-        setTimeout(() => {
-            const header = document.querySelector('.header');
-            header.style.opacity = '1';
-            header.style.transform = 'translateY(0)';
-        }, 100);
-    </script>
-</body>
-</html>
+/* Section Styles */
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(25, 25, 112, 0.15);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(25, 25, 112, 0.2);
+}
+
+.section-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #191970;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, #4169E1, #191970);
+    border-radius: 2px;
+}
+
+.summary-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+}
+
+/* Education and Experience Items */
+.education-item, .experience-item {
+    margin-bottom: 30px;
+    padding: 25px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.05), rgba(25, 25, 112, 0.05));
+    border-left: 4px solid #4169E1;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(65, 105, 225, 0.1);
+}
+
+.education-item:hover, .experience-item:hover {
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(25, 25, 112, 0.1));
+    transform: translateX(5px);
+    box-shadow: 0 10px 25px rgba(65, 105, 225, 0.2);
+    border-left-color: #191970;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.item-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #191970;
+}
+
+.item-company {
+    font-size: 1.1em;
+    color: #4169E1;
+    font-weight: 500;
+}
+
+.item-date {
+    font-size: 1em;
+    color: #666;
+    font-style: italic;
+    background: rgba(65, 105, 225, 0.1);
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+.item-location {
+    font-size: 0.95em;
+    color: #666;
+}
+
+.item-details {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.item-details li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+.item-details li::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: #4169E1;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.skill-category {
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(25, 25, 112, 0.05));
+    padding: 25px;
+    border-radius: 15px;
+    border-top: 4px solid #4169E1;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(65, 105, 225, 0.1);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(65, 105, 225, 0.2);
+    border-top-color: #191970;
+}
+
+.skill-category h3 {
+    font-size: 1.3em;
+    color: #191970;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    background: linear-gradient(45deg, #4169E1, #191970);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.4);
+    background: linear-gradient(45deg, #191970, #4169E1);
+}
+
+/* Call to Action Section */
+.cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, #4169E1, #191970);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(25, 25, 112, 0.3);
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="star" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:white;stop-opacity:0.8"/><stop offset="100%" style="stop-color:white;stop-opacity:0"/></radialGradient></defs><circle cx="20" cy="30" r="1" fill="url(%23star)"/><circle cx="80" cy="20" r="0.5" fill="url(%23star)"/><circle cx="60" cy="70" r="0.8" fill="url(%23star)"/></svg>') repeat;
+    opacity: 0.3;
+    animation: starMove 20s linear infinite;
+}
+
+@keyframes starMove {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-100px) translateY(-100px); }
+}
+
+.cta-title {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 30px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .header-left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-right {
+        text-align: center;
+        width: 100%;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .name {
+        font-size: 2.5em;
+    }
+
+    .title {
+        font-size: 1.3em;
+    }
+
+    .contact-info {
+        align-items: center;
+    }
+
+    .contact-item {
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .section {
+        padding: 30px 20px;
+    }
+
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-title {
+        font-size: 2em;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 25px 15px;
+    }
+
+    .section {
+        padding: 25px 15px;
+    }
+
+    .name {
+        font-size: 2.2em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .profile-img {
+        width: 160px;
+        height: 160px;
+        font-size: 50px;
+    }
+
+    .skill-tags {
+        gap: 8px;
+    }
+
+    .skill-tag {
+        padding: 8px 14px;
+        font-size: 0.85em;
+    }
+}
