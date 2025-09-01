@@ -120,6 +120,19 @@ body {
     animation: rotate 3s linear infinite;
 }
 
+.profile-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 3px;
+    background: linear-gradient(45deg, #87CEEB, #4169E1, #191970);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+}
+
 @keyframes rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
