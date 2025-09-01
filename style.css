@@ -88,7 +88,7 @@ body {
 
 /* Kiri: Foto */
 .header-left {
-  flex: 0 0 60%;             /* fix lebar kiri 40% */
+  flex: 0 0 50%;             /* fix lebar kiri 40% */
   display: flex;
   align-items: center;
   justify-content: center;
