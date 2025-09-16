@@ -14,13 +14,6 @@
       background: #f9fafc;
     }
 
-    .header-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -58,6 +51,34 @@
       margin-bottom: 0.7rem;
     }
 
+    /* === IMAGE GALLERY === */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .image-card {
+      text-align: center;
+    }
+
+    .image-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 0.5rem;
+    }
+
+    .caption {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #4a5568;
+      font-style: italic;
+    }
+
     .back-link {
       display: inline-block;
       margin-top: 2rem;
@@ -72,8 +93,6 @@
   </style>
 </head>
 <body>
-  <img src="images/GRO 05.png" alt="Project Image" class="header-image">
-
   <div class="container">
     <h1>Revisiting the X-ray Scaling Method with MCMC</h1>
 
@@ -102,6 +121,22 @@
       <li>Total radiated energy in the decay phase was about twice as high as in the rise phase.</li>
       <li>These differences highlight the need to account for phase-dependent physical processes in black hole mass estimation.</li>
     </ul>
+
+    <!-- IMAGE GALLERY -->
+    <div class="image-gallery">
+      <div class="image-card">
+        <img src="images/GRO 05.png" alt="Scaling curve GRO 05">
+        <div class="caption">Scaling curve – GRO 05</div>
+      </div>
+      <div class="image-card">
+        <img src="images/mcmc GRO D05 fit 50.png" alt="MCMC decay fit">
+        <div class="caption">MCMC Decay Fit – GRO D05</div>
+      </div>
+      <div class="image-card">
+        <img src="images/mcmc GRO R05 fit 50.png" alt="MCMC rise fit">
+        <div class="caption">MCMC Rise Fit – GRO R05</div>
+      </div>
+    </div>
 
     <h2>Python Libraries Used</h2>
     <ul>
