@@ -51,11 +51,11 @@
       margin-bottom: 0.7rem;
     }
 
-    /* === IMAGE GALLERY === */
+    /* === IMAGE GALLERY (STACKED) === */
     .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      display: flex;
+      flex-direction: column; /* gambar ke bawah */
+      gap: 2rem;
       margin-top: 1.5rem;
     }
 
@@ -132,18 +132,18 @@
       <li>These differences highlight the need to account for phase-dependent physical processes in black hole mass estimation.</li>
     </ul>
 
-    <!-- IMAGE GALLERY -->
+    <!-- IMAGE GALLERY (STACKED) -->
     <div class="image-gallery">
       <div class="image-card">
         <img src="images/GRO 05.png" alt="Scaling curve GRO 05">
         <div class="caption">Scaling curve – GRO 05</div>
       </div>
       <div class="image-card">
-        <img src="images/Corner Plot GRO D05.jpg" alt="Corner Plot MCMC decay fit">
+        <img src="images/Corner plot GRO D05.jpg" alt="Corner Plot MCMC decay fit">
         <div class="caption">Corner Plot MCMC Decay – GRO D05</div>
       </div>
       <div class="image-card">
-        <img src="images/Corner Plot GRO R05.jpg" alt="Corner Plot MCMC rise fit">
+        <img src="images/Corner plot GRO R05.jpg" alt="Corner Plot MCMC rise fit">
         <div class="caption">Corner Plot MCMC Rise – GRO R05</div>
       </div>
     </div>
