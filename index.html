@@ -56,7 +56,7 @@
     .section-title { font-size:2.2rem; font-weight:700; color:#1a202c; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
     .summary-text { font-size:1.15rem; line-height:1.8; text-align:justify; color:#4a5568; }
 
-    /* === EDUCATION/EXPERIENCE ITEMS === */
+    /* === EDUCATION ITEMS === */
     .education-item { margin-bottom:2rem; padding:2rem; border-radius:20px; background:rgba(102,126,234,.06); border:1px solid rgba(102,126,234,.15); }
     .item-header { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
     .item-title { font-size:1.4rem; font-weight:700; }
@@ -67,9 +67,10 @@
     .projects-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2rem; }
     .project-card { border-radius:20px; overflow:hidden; background:#fff; box-shadow:0 15px 40px rgba(0,0,0,.1); transition:.3s; }
     .project-card:hover { transform:translateY(-8px); }
-    .project-thumb {   width: 100%;  height: auto; display: block;}
+    .project-thumb { width:100%; height:auto; display:block; }
     .project-info { padding:1.5rem; }
     .project-title { font-size:1.3rem; font-weight:700; }
+    .project-subtitle { font-size:1rem; color:#4a5568; }
 
     /* === SKILLS === */
     .skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
@@ -122,7 +123,7 @@
             <div class="item-title">Master of Science in Astronomy</div>
             <div class="item-company">Institut Teknologi Bandung (ITB)</div>
           </div>
-          <div class="item-date">Excepted Aug 2025</div>
+          <div class="item-date">Expected Aug 2025</div>
         </div>
         <ul class="item-details">
           <li>Focus: Data Analysis in Stellar and High-Energy Astrophysics</li>
@@ -136,10 +137,10 @@
             <div class="item-title">Bachelor of Science in Astronomy</div>
             <div class="item-company">Institut Teknologi Bandung (ITB)</div>
           </div>
-          <div class="item-date">Graduated Okt 2024</div>
+          <div class="item-date">Graduated Oct 2024</div>
         </div>
         <ul class="item-details">
-          <li>Focus: Relevant coursework: Statistical Methods, Programming in Python, Computational Astrophysics</li>
+          <li>Relevant coursework: Statistical Methods, Programming in Python, Computational Astrophysics</li>
           <li>GPA: 3.36/4.00</li>
         </ul>
       </div>
@@ -185,7 +186,18 @@
 
   <script>
     // Stars
-    function createParticles(){const c=document.getElementById('stars');for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';s.style.animationDuration=(Math.random()*2+2)+'s';c.appendChild(s);}}
+    function createParticles(){
+      const c=document.getElementById('stars');
+      for(let i=0;i<80;i++){
+        const s=document.createElement('div');
+        s.className='star';
+        s.style.left=Math.random()*100+'%';
+        s.style.top=Math.random()*100+'%';
+        s.style.animationDelay=Math.random()*3+'s';
+        s.style.animationDuration=(Math.random()*2+2)+'s';
+        c.appendChild(s);
+      }
+    }
     createParticles();
   </script>
 </body>
