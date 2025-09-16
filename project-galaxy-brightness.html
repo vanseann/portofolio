@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galaxy Surface Brightness Modeling</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: #2d3748;
+      margin: 0;
+      background: #f9fafc;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem;
+    }
+    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #1a202c; }
+    h2 { font-size: 1.8rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #2d3748; }
+    p { font-size: 1.05rem; color: #4a5568; text-align: justify; }
+    ul { margin: 1rem 0; padding-left: 1.5rem; color: #4a5568; }
+    ul li { margin-bottom: 0.7rem; }
+    .image-gallery { display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem; }
+    .image-card { text-align: center; }
+    .image-card img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #fff; padding: 0.5rem; }
+    .caption { margin-top: 0.5rem; font-size: 0.95rem; color: #4a5568; font-style: italic; }
+    .back-link { display: inline-block; margin-top: 2rem; text-decoration: none; font-weight: 600; color: #5493db; }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Galaxy Surface Brightness Modeling</h1>
+
+    <h2>Background</h2>
+    <p>
+      Surface brightness profiles of galaxies provide crucial insights into their stellar structure, morphology, 
+      and evolutionary processes. By modeling these profiles with analytical functions such as exponential and 
+      Sérsic laws, we can quantify bulge-disk decompositions, compare structural parameters, and investigate 
+      scaling relations between galaxies.
+    </p>
+
+    <h2>Methods</h2>
+    <p>
+      Using imaging data of nearby galaxies, surface brightness profiles were extracted through elliptical isophote fitting. 
+      Several models were applied:
+    </p>
+    <ul>
+      <li><strong>Power-law</strong> – baseline slope comparison.</li>
+      <li><strong>Exponential disk</strong> – characterization of disk-dominated galaxies.</li>
+      <li><strong>Sérsic</strong> – general profile fitting with variable index <em>n</em>.</li>
+      <li><strong>Double Sérsic</strong> – multi-component systems (bulge + disk).</li>
+    </ul>
+    <p>
+      Parameter optimization was performed with <code>scipy.optimize.curve_fit</code>, and goodness-of-fit 
+      was evaluated using χ² statistics and residual analysis.
+    </p>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Sérsic models provided the best single-component fits across most galaxies.</li>
+      <li>Double Sérsic decomposition revealed distinct bulge and disk components.</li>
+      <li>Exponential disks were sufficient only for late-type spiral galaxies.</li>
+      <li>Residuals highlighted structural asymmetries and deviations from idealized profiles.</li>
+    </ul>
+
+    <!-- IMAGE GALLERY -->
+    <div class="image-gallery">
+      <div class="image-card">
+        <img src="images/Surface_Brightness_Comparison_NGC5585.png" alt="Galaxy surface brightness profile">
+        <div class="caption">Surface brightness profile</div>
+      </div>
+      <div class="image-card">
+        <img src="images/Surface_Brightness_NGC 2955_Sersic_Exp.png" alt="Sérsic and exponential fit">
+        <div class="caption">Profile fitting with Sérsic and exponential models</div>
+      </div>
+    </div>
+
+    <h2>Python Libraries Used</h2>
+    <ul>
+      <li><code>numpy</code>, <code>pandas</code> – data preprocessing and handling</li>
+      <li><code>matplotlib</code> – profile and residual visualization</li>
+      <li><code>astropy</code> – astronomical data handling</li>
+      <li><code>scipy.optimize.curve_fit</code> – parameter optimization</li>
+      <li><code>lmfit</code> – advanced model fitting</li>
+    </ul>
+
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </div>
+</body>
+</html>
