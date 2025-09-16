@@ -805,7 +805,55 @@
                 box-shadow: none;
                 border: 1px solid #ddd;
             }
-        }
+            }
+            .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    }
+    
+    
+    .project-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    
+    .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+    
+    
+    .project-card img.project-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    }
+    
+    
+    .project-info {
+    padding: 1.5rem;
+    }
+    
+    
+    .project-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    }
+    
+    
+    .project-subtitle {
+    font-size: 1rem;
+    color: #4a5568;
+    opacity: 0.85;
+    }
     </style>
 </head>
 <body>
@@ -883,110 +931,25 @@
             </div>
         </div>
 
-        <!-- Experience Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
-            
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Research Assistant</div>
-                        <div class="item-company">Institut Teknologi Bandung</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Feb 2024 - Nov 2024</div>
-                </div>
-                <ul class="item-details">
-                    <li>Topic: Revisiting the X-ray Scaling Method: The Difference in Scaling Parameters Between Rise and Decay Phases of an Outburst</li>
-                    <li>Performed spectrum fitting on three BHXT objects, conducted reference object studies, and analyzed BHXT data</li>
-                    <li>Presented the research at International Conference on Space Science, Technology and Innovation (ICSSTI) 2024</li>
-                </ul>
-                <a href="https://github.com/vanseann/fitting" class="github-button" target="_blank">
-                    <i class="fab fa-github"></i> View Project on GitHub
-                </a>
-            </div>
+<!-- PROJECTS SECTION -->
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Freelance Math Tutor for High School</div>
-                        <div class="item-company">Ask.Edu</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Apr 2024 - Present</div>
-                </div>
-                <ul class="item-details">
-                    <li>Tutored 3 students in preparation for the quantitative knowledge and mathematical reasoning sections of the UTBK</li>
-                </ul>
-            </div>
+<div class="section">
+<h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Teaching Assistant and Academic Mentor</div>
-                        <div class="item-company">Institut Teknologi Bandung</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Jan 2023 - Jul 2025</div>
-                </div>
-                <ul class="item-details">
-                    <li>Tutored and mentored over 250 undergraduate students in courses involving statistics, numerical methods, and scientific programming</li>
-                    <li>Provided academic support through discussion sessions, assignment review, and hands-on guidance in Python-based computational tasks</li>
-                    <li>Assisted lecturers in managing coursework logistics, grading, and student engagement across lectures, labs, and project-based learning</li>
-                    <li>Contributed to collaborative learning projects, including light pollution research and observational training with astronomical instruments</li>
-                </ul>
-            </div>
 
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Secretary General</div>
-                        <div class="item-company">Himpunan Mahasiswa Astronomi ITB</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Mar 2023 - Feb 2024</div>
-                </div>
-                <ul class="item-details">
-                    <li>Led the secretarial division, which supervises the secretary, treasurer, communication and information media, business funds, and household affairs</li>
-                    <li>Oversaw and managed the timeline of Himastron's agenda</li>
-                </ul>
-                <div class="project-showcase">
-                    <img src="images/calendar.png" alt="Event Calendar Management" class="project-image">
-                    <p class="project-caption">Event timeline and scheduling system implementation</p>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Head of Mentor Division</div>
-                        <div class="item-company">Himpunan Mahasiswa Astronomi ITB</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Jun 2022 - Sept 2022</div>
-                </div>
-                <ul class="item-details">
-                    <li>Supervised and guided 11 mentors in Pembinaan Anggota Muda (PAM) 2022</li>
-                    <li>Monitored the progress of young members and provided constructive feedback to help them achieve their goals for the association</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Head of Learning House Division</div>
-                        <div class="item-company">Skhole-ITB Mengajar</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Jun 2022 - May 2023</div>
-                </div>
-                <ul class="item-details">
-                    <li>Led and supervised the learning and teaching activities at Cicaheum Learning House</li>
-                    <li>Developed and implemented the teaching curriculum</li>
-                    <li>Organized the teaching schedule for efficient learning outcomes</li>
-                </ul>
-            </div>
-        </div>
+<div class="projects-container">
+<!-- Project Card -->
+<div class="project-card">
+<a href="project-scaling-method.html">
+<img src="images/GRO 05.png" alt="X-ray Scaling Method Project" class="project-thumb">
+<div class="project-info">
+<h3 class="project-title">Revisiting the X-ray Scaling Method with MCMC</h3>
+<p class="project-subtitle">Bayesian fitting and spectral analysis of BHXTs</p>
+</div>
+</a>
+</div>
+</div>
+</div>
 
         <!-- Skills Section -->
         <div class="section">
