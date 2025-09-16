@@ -1,1087 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanda Sekar Annisa - Data Scientist & Master of Science</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* ==================================== */
-        /* GLOBAL & UTILITY STYLES             */
-        /* ==================================== */
-
-        /* Reset dan pengaturan dasar */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Font yang lebih modern dan readable */
-        body {
-            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #2d3748;
-            background: linear-gradient(135deg, #b8d9ff 0%, #5493db 50%, #1a202c 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-            font-size: 16px;
-        }
-
-        /* Container utama dengan max-width yang lebih optimal */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* -------------------- */
-        /* STARS ANIMATION      */
-        /* -------------------- */
-
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #ffffff;
-            border-radius: 50%;
-            animation: twinkle 4s infinite ease-in-out;
-            box-shadow: 0 0 6px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.4);
-        }
-
-        .star::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            width: 4px;
-            height: 4px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(0.8);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
-
-        /* ==================================== */
-        /* HEADER SECTION                       */
-        /* ==================================== */
-
-        .header {
-            display: flex;
-            gap: 2.5rem;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 25px 50px rgba(26, 32, 44, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3);
-            align-items: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.8s ease;
-        }
-
-        .header:hover::before {
-            left: 100%;
-        }
-
-        .header:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 35px 70px rgba(26, 32, 44, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.4);
-        }
-
-        .header-left {
-            flex-shrink: 0;
-            width: 300px;
-            height: 300px;
-            position: relative;
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
-            position: relative;
-            border: 4px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.4s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 45px rgba(102, 126, 234, 0.4);
-        }
-
-        .profile-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .profile-img:hover .profile-photo {
-            transform: scale(1.1);
-        }
-
-        .header-right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .name {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, #b8d9ff 0%, #5493db 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        .title {
-            font-size: 1.8rem;
-            color: #4a5568;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            opacity: 0.9;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: #2d3748;
-            text-decoration: none;
-            padding: 1.2rem 1.8rem;
-            border-radius: 16px;
-            background: rgba(102, 126, 234, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(102, 126, 234, 0.15);
-            font-size: 1.1rem;
-            max-width: 380px;
-            font-weight: 500;
-        }
-
-        .contact-item i {
-            font-size: 1.1rem;
-            color: #b8d9ff;
-            min-width: 20px;
-        }
-
-        .contact-item:hover {
-            background: rgba(102, 126, 234, 0.15);
-            transform: translateY(-2px) translateX(4px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        /* ==================================== */
-        /* SECTION STYLES                       */
-        /* ==================================== */
-
-        .section {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 3rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 25px 50px rgba(26, 32, 44, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #b8d9ff, transparent);
-            transition: left 0.8s ease;
-        }
-
-        .section:hover::before {
-            left: 100%;
-        }
-
-        .section:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 35px 70px rgba(26, 32, 44, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.4);
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 2rem;
-            position: relative;
-            padding-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-title i {
-            color: #b8d9ff;
-            font-size: 1.8rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #b8d9ff, #5493db);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
-        .section:hover .section-title::after {
-            width: 120px;
-        }
-
-        .summary-text {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #4a5568;
-            text-align: justify;
-            font-weight: 400;
-        }
-
-        /* -------------------- */
-        /* EDUCATION & EXPERIENCE ITEMS */
-        /* -------------------- */
-
-        .education-item, .experience-item {
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 20px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.06), rgba(118, 75, 162, 0.04));
-            border: 1px solid rgba(102, 126, 234, 0.15);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .education-item::before, .experience-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, #b8d9ff, #5493db);
-            transition: width 0.3s ease;
-        }
-
-        .education-item:hover::before, .experience-item:hover::before {
-            width: 8px;
-        }
-
-        .education-item:hover, .experience-item:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.08));
-            transform: translateX(8px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.15);
-            border-color: rgba(102, 126, 234, 0.25);
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .item-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 0.5rem;
-        }
-
-        .item-company {
-            font-size: 1.1rem;
-            color: #b8d9ff;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .item-location {
-            font-size: 0.95rem;
-            color: #718096;
-            font-weight: 400;
-        }
-
-        .item-date {
-            font-size: 0.95rem;
-            color: #4a5568;
-            background: rgba(102, 126, 234, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-            white-space: nowrap;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-        }
-
-        .item-details {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .item-details li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #4a5568;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        .item-details li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #b8d9ff;
-            font-weight: bold;
-            font-size: 1.2rem;
-            top: -0.1rem;
-        }
-
-        .github-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #333, #555);
-            color: white;
-            padding: 0.7rem 1.2rem;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .github-button:hover {
-            background: linear-gradient(135deg, #555, #333);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .github-button i {
-            font-size: 1rem;
-        }
-
-        /* -------------------- */
-        /* SKILLS SECTION       */
-        /* -------------------- */
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.06));
-            padding: 2rem;
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(102, 126, 234, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #b8d9ff, #5493db);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover::before {
-            height: 6px;
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
-            border-color: rgba(102, 126, 234, 0.25);
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.08));
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            color: #1a202c;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 700;
-        }
-
-        .skill-category h3 i {
-            color: #b8d9ff;
-            font-size: 1.2rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #b8d9ff, #5493db);
-            color: white;
-            padding: 0.7rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            cursor: default;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-tag::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .skill-tag:hover::before {
-            left: 100%;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-            background: linear-gradient(135deg, #5493db, #b8d9ff);
-        }
-
-        /* -------------------- */
-        /* CTA SECTION          */
-        /* -------------------- */
-
-        .cta-section {
-            text-align: center;
-            background: linear-gradient(135deg, #b8d9ff 0%, #5493db 100%);
-            color: white;
-            padding: 4rem 3rem;
-            border-radius: 24px;
-            margin-top: 3rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="star" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:white;stop-opacity:0.6"/><stop offset="100%" style="stop-color:white;stop-opacity:0"/></radialGradient></defs><circle cx="20" cy="30" r="0.8" fill="url(%23star)"/><circle cx="80" cy="20" r="0.4" fill="url(%23star)"/><circle cx="60" cy="70" r="0.6" fill="url(%23star)"/><circle cx="10" cy="80" r="0.5" fill="url(%23star)"/><circle cx="90" cy="60" r="0.7" fill="url(%23star)"/></svg>') repeat;
-            opacity: 0.4;
-            animation: starMove 25s linear infinite;
-        }
-
-        @keyframes starMove {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(-50px) translateY(-50px); }
-        }
-
-        .cta-title {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-button {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(15px);
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .cta-button i {
-            font-size: 1.1rem;
-        }
-
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* ==================================== */
-        /* RESPONSIVE DESIGN                    */
-        /* ==================================== */
-
-        @media (max-width: 1024px) {
-            .container {
-                padding: 1.5rem;
-            }
-            
-            .header {
-                gap: 2rem;
-                padding: 2.5rem;
-            }
-            
-            .section {
-                padding: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
-                padding: 2rem;
-            }
-
-            .header-left {
-                width: 220px;
-                height: 220px;
-                margin: 0 auto;
-            }
-
-            .header-right {
-                align-items: center;
-            }
-
-            .contact-info {
-                align-items: center;
-                width: 100%;
-            }
-
-            .contact-item {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .section {
-                padding: 2rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .section-title i {
-                align-self: flex-start;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .item-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .item-date {
-                align-self: flex-start;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .header {
-                padding: 1.5rem;
-                gap: 1rem;
-            }
-
-            .header-left {
-                width: 180px;
-                height: 180px;
-            }
-
-            .section {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .education-item, .experience-item {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .skill-category {
-                padding: 1.5rem;
-            }
-
-            .skill-tags {
-                gap: 0.6rem;
-            }
-
-            .skill-tag {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .cta-section {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .cta-title {
-                font-size: 2rem;
-            }
-
-            .cta-subtitle {
-                font-size: 1rem;
-            }
-        }
-
-        /* ==================================== */
-        /* ACCESSIBILITY & PERFORMANCE          */
-        /* ==================================== */
-
-        /* Mengurangi animasi untuk pengguna yang prefer reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            .star {
-                animation: none;
-            }
-        }
-
-        /* Focus states untuk accessibility */
-        .contact-item:focus,
-        .cta-button:focus {
-            outline: 3px solid #b8d9ff;
-            outline-offset: 2px;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Print styles */
-        @media print {
-            .stars-container {
-                display: none;
-            }
-            
-            body {
-                background: white;
-                color: black;
-            }
-            
-            .section, .header {
-                background: white;
-                box-shadow: none;
-                border: 1px solid #ddd;
-            }
-            }
-            .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanda Sekar Annisa - Data Scientist & Master of Science</title>
+  <meta name="description" content="Portfolio of Vanda Sekar Annisa - Data Scientist & Master of Science. Experienced in data analysis, astronomy, and scientific research.">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* === GLOBAL RESET === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter','Segoe UI',sans-serif;
+      line-height: 1.6;
+      color: #2d3748;
+      background: linear-gradient(135deg,#b8d9ff 0%,#5493db 50%,#1a202c 100%);
+      min-height: 100vh; overflow-x: hidden; font-size: 16px;
     }
-    
-    
-    .project-card {
-    border-radius: 20px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem; position: relative; z-index: 1; }
+
+    /* === STAR BACKGROUND === */
+    .stars-container { position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+    .star { position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; animation: twinkle 4s infinite ease-in-out; box-shadow:0 0 6px rgba(255,255,255,0.8),0 0 12px rgba(255,255,255,0.4); }
+    @keyframes twinkle { 0%,100%{opacity:.2; transform:scale(.8);} 50%{opacity:1; transform:scale(1.2);} }
+
+    /* === HEADER === */
+    .header {
+      display:flex; gap:2.5rem; background:rgba(255,255,255,0.98);
+      backdrop-filter:blur(20px); border-radius:24px; padding:2.5rem;
+      margin-bottom:2.5rem; box-shadow:0 25px 50px rgba(26,32,44,0.15);
+      align-items:center; transition:.4s; position:relative; overflow:hidden;
     }
-    
-    
-    .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    .header-left { width:300px; height:300px; }
+    .profile-img { width:100%; height:100%; border-radius:20px; overflow:hidden; border:4px solid rgba(255,255,255,.8); box-shadow:0 20px 50px rgba(102,126,234,.4); }
+    .profile-photo { width:100%; height:100%; object-fit:cover; }
+    .header-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
+    .name { font-size:clamp(3rem,6vw,4.5rem); font-weight:800; background:linear-gradient(135deg,#b8d9ff,#5493db); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
+    .title { font-size:1.8rem; color:#4a5568; margin-bottom:2rem; }
+
+    /* === CONTACT === */
+    .contact-info { display:flex; flex-direction:column; gap:1rem; }
+    .contact-item {
+      display:flex; align-items:center; gap:1rem; color:#2d3748; text-decoration:none;
+      padding:1.2rem 1.8rem; border-radius:16px; background:rgba(102,126,234,.08);
+      border:1px solid rgba(102,126,234,.15); font-size:1.1rem; max-width:380px;
     }
-    
-    
-    .project-card img.project-thumb {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+    .contact-item i { color:#b8d9ff; }
+
+    /* === SECTION === */
+    .section {
+      background:rgba(255,255,255,.98); backdrop-filter:blur(20px);
+      border-radius:24px; padding:3rem; margin-bottom:2.5rem;
+      box-shadow:0 25px 50px rgba(26,32,44,.1);
     }
-    
-    
-    .project-info {
-    padding: 1.5rem;
-    }
-    
-    
-    .project-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #1a202c;
-    margin-bottom: 0.5rem;
-    }
-    
-    
-    .project-subtitle {
-    font-size: 1rem;
-    color: #4a5568;
-    opacity: 0.85;
-    }
-    </style>
+    .section-title { font-size:2.2rem; font-weight:700; color:#1a202c; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+    .summary-text { font-size:1.15rem; line-height:1.8; text-align:justify; color:#4a5568; }
+
+    /* === EDUCATION/EXPERIENCE ITEMS === */
+    .education-item { margin-bottom:2rem; padding:2rem; border-radius:20px; background:rgba(102,126,234,.06); border:1px solid rgba(102,126,234,.15); }
+    .item-header { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    .item-title { font-size:1.4rem; font-weight:700; }
+    .item-company { font-size:1.1rem; color:#5493db; }
+    .item-date { font-size:.95rem; padding:.5rem 1rem; border-radius:20px; background:rgba(102,126,234,.1); }
+
+    /* === PROJECTS === */
+    .projects-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2rem; }
+    .project-card { border-radius:20px; overflow:hidden; background:#fff; box-shadow:0 15px 40px rgba(0,0,0,.1); transition:.3s; }
+    .project-card:hover { transform:translateY(-8px); }
+    .project-thumb { width:100%; height:200px; object-fit:cover; }
+    .project-info { padding:1.5rem; }
+    .project-title { font-size:1.3rem; font-weight:700; }
+
+    /* === SKILLS === */
+    .skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+    .skill-category { padding:2rem; border-radius:20px; background:rgba(102,126,234,.08); }
+    .skill-category h3 { font-size:1.3rem; font-weight:700; margin-bottom:1.5rem; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:.8rem; }
+    .skill-tag { background:linear-gradient(135deg,#b8d9ff,#5493db); color:#fff; padding:.7rem 1.2rem; border-radius:25px; font-size:.9rem; }
+
+    /* === CTA === */
+    .cta-section { text-align:center; background:linear-gradient(135deg,#b8d9ff,#5493db); color:#fff; padding:4rem 3rem; border-radius:24px; }
+    .cta-title { font-size:2.8rem; font-weight:800; }
+    .cta-subtitle { font-size:1.2rem; margin:1rem auto 2rem; max-width:600px; }
+    .cta-buttons { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
+    .cta-button { padding:1rem 2rem; border-radius:30px; background:rgba(255,255,255,.15); color:#fff; text-decoration:none; font-weight:700; }
+  </style>
 </head>
 <body>
-    <div class="stars-container" id="stars"></div>
-    
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="header-left">
-                <div class="profile-img">
-                    <img src="images/foto-sidang.jpg" alt="Vanda Sekar Annisa" class="profile-photo">
-                </div>
-            </div>
-            <div class="header-right">
-                <h1 class="name">Vanda Sekar Annisa</h1>
-                <p class="title">Data Scientist & Master of Science</p>
-                
-                <div class="contact-info">
-                    <a href="tel:+6281257231667" class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        (+62) 812-5723-1667
-                    </a>
-                    <a href="mailto:vanda.sekar272@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        vanda.sekar272@gmail.com
-                    </a>
-                    <a href="https://linkedin.com/in/vanseann272" class="contact-item" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        LinkedIn Profile
-                    </a>
-                </div>
-            </div>
+  <div class="stars-container" id="stars"></div>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-left">
+        <div class="profile-img">
+          <img src="images/foto-sidang.jpg" alt="Profile photo of Vanda Sekar Annisa" class="profile-photo">
         </div>
-
-        <!-- Summary Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
-            <p class="summary-text">
-                Master of Science in Astronomy from Institut Teknologi Bandung with a strong foundation in data analysis, Python programming, and scientific research. Passionate about solving complex problems, deriving insights from data, and continuously exploring new tools, concepts, and technologies. Experienced in teaching, collaborative research, and astronomical data processing. Actively seeking opportunities in data science, analytics, and applied computational research.
-            </p>
+      </div>
+      <div class="header-right">
+        <h1 class="name">Vanda Sekar Annisa</h1>
+        <p class="title">Data Scientist & Master of Science</p>
+        <div class="contact-info">
+          <a href="tel:+6281257231667" class="contact-item"><i class="fas fa-phone"></i>(+62) 812-5723-1667</a>
+          <a href="mailto:vanda.sekar272@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> vanda.sekar272@gmail.com</a>
+          <a href="https://linkedin.com/in/vanseann272" class="contact-item" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
         </div>
-
-        <!-- Education Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-            
-            <div class="education-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Master of Science in Astronomy</div>
-                        <div class="item-company">Institut Teknologi Bandung (ITB)</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Excepted Aug 2025</div>
-                </div>
-                <ul class="item-details">
-                    <li>Focus: Data Analysis in Stellar and High-Energy Astrophysics</li>
-                    <li>GPA: 3.93/4.00</li>
-                </ul>
-            </div>
-
-            <div class="education-item">
-                <div class="item-header">
-                    <div>
-                        <div class="item-title">Bachelor of Science in Astronomy</div>
-                        <div class="item-company">Institut Teknologi Bandung (ITB)</div>
-                        <div class="item-location">Bandung, Indonesia</div>
-                    </div>
-                    <div class="item-date">Graduated Oct 2024</div>
-                </div>
-                <ul class="item-details">
-                    <li>Relevant coursework: Statistical Methods, Programming in Python, Computational Astrophysics</li>
-                    <li>GPA: 3.36/4.00; Dean's List (6th and 7th semester)</li>
-                </ul>
-            </div>
-        </div>
-
-<!-- PROJECTS SECTION -->
-
-<div class="section">
-<h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
-
-
-<div class="projects-container">
-<!-- Project Card -->
-<div class="project-card">
-<a href="project-scaling-method.html">
-<img src="images/GRO 05.png" alt="X-ray Scaling Method Project" class="project-thumb">
-<div class="project-info">
-<h3 class="project-title">Revisiting the X-ray Scaling Method with MCMC</h3>
-<p class="project-subtitle">Bayesian fitting and spectral analysis of BHXTs</p>
-</div>
-</a>
-</div>
-</div>
-</div>
-
-        <!-- Skills Section -->
-        <div class="section">
-            <h2 class="section-title"><i class="fas fa-cogs"></i> Skills & Interests</h2>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Technical Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python Programming</span>
-                        <span class="skill-tag">Data Analysis</span>
-                        <span class="skill-tag">Statistical Methods</span>
-                        <span class="skill-tag">Computational Astrophysics</span>
-                        <span class="skill-tag">Spectrum Fitting</span>
-                        <span class="skill-tag">Scientific Research</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-laptop"></i> Software & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Microsoft Excel</span>
-                        <span class="skill-tag">Microsoft PowerPoint</span>
-                        <span class="skill-tag">LaTeX</span>
-                        <span class="skill-tag">Canva</span>
-                        <span class="skill-tag">CapCut</span>
-                        <span class="skill-tag">Astronomical Data Processing</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-heart"></i> Areas of Interest</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Data Science</span>
-                        <span class="skill-tag">Data Analytics</span>
-                        <span class="skill-tag">Observational Astrophysics</span>
-                        <span class="skill-tag">Teaching & Mentoring</span>
-                        <span class="skill-tag">Problem Solving</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Teaching</span>
-                        <span class="skill-tag">Leadership</span>
-                        <span class="skill-tag">Collaborative Research</span>
-                        <span class="skill-tag">Academic Mentoring</span>
-                        <span class="skill-tag">Presentation Skills</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="cta-section">
-            <h2 class="cta-title">Let's Connect!</h2>
-            <p class="cta-subtitle">Interested in data science, research collaboration, or astronomical insights? Let's discuss how we can work together.</p>
-            <div class="cta-buttons">
-                <a href="mailto:vanda.sekar272@gmail.com" class="cta-button">
-                    <i class="fas fa-envelope"></i> Send Email
-                </a>
-                <a href="https://linkedin.com/in/vanseann272" class="cta-button" target="_blank">
-                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <script>
-        // Create twinkling stars
-        function createParticles() {
-            const particlesContainer = document.getElementById('stars');
-            const numberOfStars = 80;
-            
-            for (let i = 0; i < numberOfStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                particlesContainer.appendChild(star);
-            }
-        }
+    <!-- ABOUT -->
+    <div class="section">
+      <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
+      <p class="summary-text">Master of Science in Astronomy from Institut Teknologi Bandung with a strong foundation in data analysis, Python programming, and scientific research...</p>
+    </div>
 
-        // Smooth scroll for anchor links (if any)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- EDUCATION -->
+    <div class="section">
+      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="education-item">
+        <div class="item-header">
+          <div>
+            <div class="item-title">Master of Science in Astronomy</div>
+            <div class="item-company">Institut Teknologi Bandung (ITB)</div>
+          </div>
+          <div class="item-date">Expected Aug 2025</div>
+        </div>
+        <ul class="item-details">
+          <li>Focus: Data Analysis in Stellar and High-Energy Astrophysics</li>
+          <li>GPA: 3.93/4.00</li>
+        </ul>
+      </div>
+    </div>
 
-        // Add scroll animation for sections
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <!-- PROJECTS -->
+    <div class="section">
+      <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <a href="project-scaling-method.html">
+            <img src="images/GRO 05.png" alt="X-ray Scaling project" class="project-thumb">
+            <div class="project-info">
+              <h3 class="project-title">Revisiting the X-ray Scaling Method with MCMC</h3>
+              <p class="project-subtitle">Bayesian fitting and spectral analysis of BHXTs</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    <!-- SKILLS -->
+    <div class="section">
+      <h2 class="section-title"><i class="fas fa-cogs"></i> Skills & Interests</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Technical Skills</h3>
+          <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Data Analysis</span></div>
+        </div>
+      </div>
+    </div>
 
-        // Observe all sections for animation
-        document.querySelectorAll('.section, .header').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2 class="cta-title">Let's Connect!</h2>
+      <p class="cta-subtitle">Interested in data science, research collaboration, or astronomical insights?</p>
+      <div class="cta-buttons">
+        <a href="mailto:vanda.sekar272@gmail.com" class="cta-button"><i class="fas fa-envelope"></i> Send Email</a>
+        <a href="https://linkedin.com/in/vanseann272" class="cta-button" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+      </div>
+    </div>
+  </div>
 
-        // Initialize
-        createParticles();
-        
-        // Show header immediately
-        setTimeout(() => {
-            const header = document.querySelector('.header');
-            header.style.opacity = '1';
-            header.style.transform = 'translateY(0)';
-        }, 100);
-    </script>
+  <script>
+    // Stars
+    function createParticles(){const c=document.getElementById('stars');for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';s.style.animationDuration=(Math.random()*2+2)+'s';c.appendChild(s);}}
+    createParticles();
+  </script>
 </body>
 </html>
