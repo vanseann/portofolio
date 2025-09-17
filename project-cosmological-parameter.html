@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmological Parameter Estimation</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: #2d3748;
+      margin: 0;
+      background: #f9fafc;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem;
+    }
+    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #1a202c; }
+    h2 { font-size: 1.8rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #2d3748; }
+    p { font-size: 1.05rem; color: #4a5568; text-align: justify; }
+    ul { margin: 1rem 0; padding-left: 1.5rem; color: #4a5568; }
+    ul li { margin-bottom: 0.7rem; }
+    .image-gallery { display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem; }
+    .image-card { text-align: center; }
+    .image-card img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #fff; padding: 0.5rem; }
+    .caption { margin-top: 0.5rem; font-size: 0.95rem; color: #4a5568; font-style: italic; }
+    .back-link { display: inline-block; margin-top: 2rem; text-decoration: none; font-weight: 600; color: #5493db; }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cosmological Parameter Estimation</h1>
+
+    <h2>Background</h2>
+    <p>
+      Determining cosmological parameters is fundamental to understanding the large-scale structure and evolution of the Universe. 
+      In the standard <strong>ΛCDM model</strong>, key parameters such as the matter density (Ω<sub>m</sub>), dark energy density (Ω<sub>Λ</sub>), and the Hubble constant (H<sub>0</sub>) 
+      define the dynamics of cosmic expansion and structure formation.
+    </p>
+
+    <h2>Methods</h2>
+    <p>
+      Using observational data including Type Ia supernovae and Hubble parameter measurements, 
+      the model predictions from ΛCDM cosmology were fit to the data. 
+      Parameter estimation was first attempted with <code>scipy.optimize.curve_fit</code>, 
+      followed by a Bayesian approach using <strong>Markov Chain Monte Carlo (MCMC)</strong> with <code>emcee</code>. 
+      Posterior distributions were analyzed with corner plots to extract parameter constraints.
+    </p>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Constraints on H<sub>0</sub> are consistent with recent Planck and SH0ES results within uncertainties.</li>
+      <li>The matter density parameter Ω<sub>m</sub> is well constrained, while Ω<sub>Λ</sub> dominates at late cosmic times.</li>
+      <li>MCMC results provide credible intervals for each parameter, improving robustness compared to simple curve fitting.</li>
+    </ul>
+
+    <!-- IMAGE GALLERY -->
+    <div class="image-gallery">
+      <div class="image-card">
+        <img src="images/cosmology-fit.png" alt="Cosmological parameter fitting">
+        <div class="caption">Model fitting to cosmological observational data</div>
+      </div>
+      <div class="image-card">
+        <img src="images/cosmology-corner.png" alt="Corner plot cosmological parameters">
+        <div class="caption">MCMC corner plot showing constraints on cosmological parameters</div>
+      </div>
+    </div>
+
+    <h2>Python Libraries Used</h2>
+    <ul>
+      <li><code>numpy</code>, <code>pandas</code> – data preprocessing</li>
+      <li><code>matplotlib</code>, <code>scienceplots</code> – visualization</li>
+      <li><code>astropy.cosmology</code> – cosmological models</li>
+      <li><code>scipy.optimize.curve_fit</code> – parameter fitting</li>
+      <li><code>emcee</code> – MCMC sampling</li>
+      <li><code>corner</code> – posterior distribution visualization</li>
+    </ul>
+
+    <p><em>For the full implementation and code, please visit the GitHub repository:</em>  
+    <a href="https://github.com/vanseann/fitting" target="_blank">https://github.com/vanseann/fitting</a></p>
+
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </div>
+</body>
+</html>
