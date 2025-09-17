@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stellar Distance Estimation</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: #2d3748;
+      margin: 0;
+      background: #f9fafc;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem;
+    }
+    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; color: #1a202c; }
+    h2 { font-size: 1.8rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #2d3748; }
+    p { font-size: 1.05rem; color: #4a5568; text-align: justify; }
+    ul { margin: 1rem 0; padding-left: 1.5rem; color: #4a5568; }
+    ul li { margin-bottom: 0.7rem; }
+    .image-gallery { display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem; }
+    .image-card { text-align: center; }
+    .image-card img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #fff; padding: 0.5rem; }
+    .caption { margin-top: 0.5rem; font-size: 0.95rem; color: #4a5568; font-style: italic; }
+    .back-link { display: inline-block; margin-top: 2rem; text-decoration: none; font-weight: 600; color: #5493db; }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Stellar Distance Estimation from Gaia DR3</h1>
+
+    <h2>Background</h2>
+    <p>
+      Accurate determination of stellar distances is essential for understanding the structure of our Galaxy and 
+      stellar populations. Gaia DR3 provides precise parallaxes for millions of stars, but uncertainties in 
+      parallax measurements necessitate probabilistic methods for distance estimation.
+    </p>
+
+    <h2>Methods</h2>
+    <p>
+      Distances were estimated using a <strong>Bayesian framework</strong>. For each star:
+    </p>
+    <ul>
+      <li>The <strong>likelihood</strong> was computed assuming a Gaussian distribution of the observed parallax and its uncertainty.</li>
+      <li>Three different <strong>priors</strong> on the distance were considered: uniform, constant volume density, and exponentially decreasing volume density.</li>
+      <li>The <strong>posterior distribution</strong> was calculated as the product of the likelihood and the prior, and normalized.</li>
+      <li>The mode of the posterior was taken as the best distance estimate, and uncertainties were quantified using the full width at half maximum (FWHM) of the posterior.</li>
+      <li>Visualization of the likelihood, prior, posterior, and uncertainty was performed for each star.</li>
+    </ul>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Posterior distributions provide robust distance estimates even for stars with large relative parallax errors.</li>
+      <li>Distance estimates vary depending on the chosen prior, illustrating the impact of prior assumptions on inference.</li>
+      <li>Uncertainties were systematically computed and displayed for all stars, facilitating comparison across different priors.</li>
+      <li>The workflow enables automated generation of publication-quality plots for large datasets.</li>
+    </ul>
+
+    <div class="image-gallery">
+      <div class="image-card">
+        <img src="images/1 Gaia DR3 4301758223417056256.png" alt="Star 1 posterior">
+        <div class="caption">Star 1: Posterior distributions and uncertainties</div>
+      </div>
+      <div class="image-card">
+        <img src="images/2 Gaia DR3 4301758227723786240.png" alt="Star 2 posterior">
+        <div class="caption">Star 2: Posterior distributions and uncertainties</div>
+      </div>
+      <div class="image-card">
+        <img src="images/3 Gaia DR3 4301758983644640000.png" alt="Star 3 posterior">
+        <div class="caption">Star 3: Posterior distributions and uncertainties</div>
+      </div>
+      <div class="image-card">
+        <img src="images/4 Gaia DR3 4301757506169333248.png" alt="Star 4 posterior">
+        <div class="caption">Star 4: Posterior distributions and uncertainties</div>
+      </div>
+      <div class="image-card">
+        <img src="images/5 Gaia DR3 4301711494175024384.png" alt="Star 5 posterior">
+        <div class="caption">Star 5: Posterior distributions and uncertainties</div>
+      </div>
+    </div>
+
+    <h2>Python Libraries Used</h2>
+    <ul>
+      <li><code>numpy</code>, <code>pandas</code> – data preprocessing</li>
+      <li><code>scipy.stats</code>, <code>scipy.integrate</code> – likelihood and posterior computation</li>
+      <li><code>matplotlib</code> – visualization of likelihood, prior, and posterior distributions</li>
+    </ul>
+
+    <p><em>For the full code and examples, visit the GitHub repository:</em>  
+    <a href="https://github.com/vanseann/fitting" target="_blank">https://github.com/vanseann/fitting</a></p>
+
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  </div>
+</body>
+</html>
