@@ -6,246 +6,1009 @@
   <title>Vanda Sekar Annisa - Data Scientist & Master of Science</title>
   <meta name="description" content="Portfolio of Vanda Sekar Annisa - Data Scientist & Master of Science. Experienced in data analysis, astronomy, and scientific research.">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* === GLOBAL RESET === */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #0f4c81;
+      --secondary-blue: #1e6091;
+      --accent-blue: #2980b9;
+      --light-blue: #3498db;
+      --ice-blue: #e8f4f8;
+      --navy: #0a3d62;
+      --text-dark: #1a1a2e;
+      --text-light: #4a6fa5;
+      --glass: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+
     body {
-      font-family: 'Inter','Segoe UI',sans-serif;
-      line-height: 1.6;
-      color: #2d3748;
-      background: linear-gradient(135deg,#e0eaff 0%,#c0d8ff 50%,#f0f4ff 100%);
-      min-height: 100vh; overflow-x: hidden; font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f4c81 0%, #1e6091 30%, #2980b9 60%, #3498db 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 2rem; position: relative; z-index: 1; }
 
-    /* === STAR BACKGROUND === */
-    .stars-container { position: fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
-    .star { position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; animation: twinkle 4s infinite ease-in-out; box-shadow:0 0 6px rgba(255,255,255,0.8),0 0 12px rgba(255,255,255,0.4); }
-    @keyframes twinkle { 0%,100%{opacity:.2; transform:scale(.8);} 50%{opacity:1; transform:scale(1.2);} }
-
-    /* === HEADER === */
-    .header {
-      display:flex; gap:2rem; background:rgba(255,255,255,0.95);
-      border-radius:20px; padding:2rem;
-      margin-bottom:2.5rem; box-shadow:0 15px 40px rgba(0,0,0,0.08);
-      align-items:center; transition:.4s; position:relative; overflow:hidden;
+    /* Enhanced Cosmic Background */
+    .cosmic-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(52, 152, 219, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(30, 96, 145, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(15, 76, 129, 0.2) 0%, transparent 50%);
     }
-    .header-left { width:250px; height:250px; }
-    .profile-img { width:100%; height:100%; border-radius:20px; overflow:hidden; border:3px solid rgba(255,255,255,.8); box-shadow:0 15px 35px rgba(74,144,226,.3); }
-    .profile-photo { width:100%; height:100%; object-fit:cover; }
-    .header-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-    .name {
-      font-family: 'Poppins', sans-serif;
-      font-size:clamp(2.5rem,5vw,3.5rem); font-weight:700;
-      background: linear-gradient(135deg,#4a90e2,#0066cc);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      margin-bottom:1rem;
-    }
-    .title { font-size:1.5rem; color:#4a5568; margin-bottom:1.5rem; }
 
-    /* === CONTACT === */
-    .contact-info { display:flex; flex-direction:column; gap:0.8rem; }
-    .contact-item {
-      display:flex; align-items:center; gap:1rem; color:#2d3748; text-decoration:none;
-      padding:0.9rem 1.5rem; border-radius:14px; background:rgba(74,144,226,.08);
-      border:1px solid rgba(74,144,226,.15); font-size:1rem; max-width:350px;
+    /* Animated Stars */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    .star::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite alternate;
+    }
+
+    .star.small {
+      width: 2px;
+      height: 2px;
+    }
+
+    .star.medium {
+      width: 3px;
+      height: 3px;
+    }
+
+    .star.large {
+      width: 4px;
+      height: 4px;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.5); }
+    }
+
+    /* Container with unique layout */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Floating Navigation */
+    .floating-nav {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 0.5rem;
+      z-index: 1000;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .nav-item {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.3s ease;
+      font-size: 1.2rem;
     }
-    .contact-item i { color:#4a90e2; }
-    .contact-item:hover { background:rgba(74,144,226,.15); transform:translateY(-2px); }
 
-    /* === SECTION === */
-    .section {
-      background:rgba(255,255,255,.95);
-      border-radius:20px; padding:2.5rem; margin-bottom:2rem;
-      box-shadow:0 15px 40px rgba(0,0,0,.08);
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
     }
-    .section-title { font-size:2rem; font-weight:700; color:#1a202c; margin-bottom:1.5rem; display:flex; align-items:center; gap:1rem; }
-    .summary-text { font-size:1.1rem; line-height:1.7; text-align:justify; color:#4a5568; }
 
-    /* === EDUCATION ITEMS === */
-    .education-item { margin-bottom:1.8rem; padding:1.8rem; border-radius:16px; background:rgba(74,144,226,.06); border:1px solid rgba(74,144,226,.15); }
-    .item-header { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
-    .item-title { font-size:1.25rem; font-weight:700; }
-    .item-company { font-size:1.05rem; color:#0066cc; }
-    .item-date { font-size:0.9rem; padding:0.4rem 0.8rem; border-radius:16px; background:rgba(74,144,226,.1); }
+    /* Hero Section - Asymmetric Design */
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      min-height: 90vh;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
 
-    /* === PROJECTS === */
-    .projects-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.8rem; }
-    .project-card { border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.08); transition:.3s; }
-    .project-card:hover { transform:translateY(-5px); box-shadow:0 15px 40px rgba(0,0,0,.12); }
-    .project-thumb { width:100%; height:200px; object-fit:cover; display:block; }
-    .project-info { padding:1.2rem; }
-    .project-title { font-size:1.25rem; font-weight:700; }
-    .project-subtitle { font-size:1rem; color:#4a5568; }
+    .hero-content {
+      background: var(--glass);
+      backdrop-filter: blur(25px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-    /* === SKILLS === */
-    .skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.8rem; }
-    .skill-category { padding:1.8rem; border-radius:16px; background:#f5f8ff; box-shadow:0 5px 20px rgba(0,0,0,.05); }
-    .skill-category h3 { font-size:1.2rem; font-weight:700; margin-bottom:1rem; }
-    .skill-tags { display:flex; flex-wrap:wrap; gap:.7rem; }
-    .skill-tag { background:#4a90e2; color:#fff; padding:.6rem 1rem; border-radius:25px; font-size:.9rem; }
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
 
-    /* === CTA === */
-    .cta-section { text-align:center; background:linear-gradient(135deg,#4a90e2,#0066cc); color:#fff; padding:3.5rem 2.5rem; border-radius:20px; }
-    .cta-title { font-size:2.5rem; font-weight:700; }
-    .cta-subtitle { font-size:1.1rem; margin:1rem auto 1.5rem; max-width:600px; }
-    .cta-buttons { display:flex; justify-content:center; gap:1.3rem; flex-wrap:wrap; }
-    .cta-button { padding:0.9rem 1.8rem; border-radius:30px; background:rgba(255,255,255,.15); color:#fff; text-decoration:none; font-weight:700; transition: all 0.3s ease; }
-    .cta-button:hover { transform:scale(1.05); background:rgba(255,255,255,.25); }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-20px, -20px) rotate(5deg); }
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Profile Section - Unique Hexagonal Design */
+    .profile-section {
+      position: relative;
+    }
+
+    .profile-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 2rem;
+    }
+
+    .profile-hexagon {
+      width: 100%;
+      height: 100%;
+      background: var(--glass);
+      backdrop-filter: blur(25px);
+      border: 2px solid var(--glass-border);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      overflow: hidden;
+      position: relative;
+      animation: morphing 8s ease-in-out infinite;
+    }
+
+    @keyframes morphing {
+      0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+      50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+      75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .profile-hexagon:hover .profile-img {
+      transform: scale(1.1);
+    }
+
+    .contact-floating {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-item {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 1rem 2rem;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-item i {
+      font-size: 1.2rem;
+      color: var(--light-blue);
+    }
+
+    /* Content Sections - Unique Card Layouts */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-card {
+      background: var(--glass);
+      backdrop-filter: blur(25px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .section-card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--light-blue), var(--accent-blue));
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title i {
+      color: var(--light-blue);
+      font-size: 2rem;
+    }
+
+    /* Education Timeline */
+    .education-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .education-timeline::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--light-blue), var(--accent-blue));
+    }
+
+    .education-item {
+      position: relative;
+      margin-bottom: 3rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .education-item::before {
+      content: '';
+      position: absolute;
+      left: -3rem;
+      top: 2rem;
+      width: 12px;
+      height: 12px;
+      background: var(--light-blue);
+      border-radius: 50%;
+      border: 3px solid white;
+      box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+    }
+
+    .education-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-institution {
+      color: var(--light-blue);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .education-details {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+
+    .education-details li {
+      margin-bottom: 0.5rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .education-details li::before {
+      content: '▶';
+      position: absolute;
+      left: 0;
+      color: var(--light-blue);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-15px) rotateY(5deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.1);
+    }
+
+    .project-info {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+
+    /* Skills Constellation */
+    .skills-constellation {
+      position: relative;
+      height: 400px;
+      margin: 2rem 0;
+    }
+
+    .skill-node {
+      position: absolute;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 1rem 1.5rem;
+      color: white;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skill-node:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--glass);
+      backdrop-filter: blur(25px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, var(--light-blue), var(--accent-blue));
+      color: white;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-button i {
+      margin-right: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-nav {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 2rem;
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .hero-content {
+        padding: 2rem;
+      }
+
+      .section-card {
+        padding: 2rem;
+      }
+
+      .profile-container {
+        width: 250px;
+        height: 250px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="stars-container" id="stars"></div>
+  <div class="cosmic-bg"></div>
+  <div class="stars" id="starsContainer"></div>
+  
   <div class="container">
-    <!-- HEADER -->
-    <div class="header">
-      <div class="header-left">
-        <div class="profile-img">
-          <img src="images/foto-sidang.jpg" alt="Profile photo of Vanda Sekar Annisa" class="profile-photo">
-        </div>
-      </div>
-      <div class="header-right">
-        <h1 class="name">Vanda Sekar Annisa</h1>
-        <p class="title">Data Scientist & Master of Science</p>
-        <div class="contact-info">
-          <a href="tel:+6281257231667" class="contact-item"><i class="fas fa-phone"></i>(+62) 812-5723-1667</a>
-          <a href="mailto:vanda.sekar272@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> vanda.sekar272@gmail.com</a>
-          <a href="https://linkedin.com/in/vanseann272" class="contact-item" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
-        </div>
-      </div>
-    </div>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
+      <button class="nav-item" onclick="scrollToSection('hero')"><i class="fas fa-home"></i></button>
+      <button class="nav-item" onclick="scrollToSection('about')"><i class="fas fa-user"></i></button>
+      <button class="nav-item" onclick="scrollToSection('education')"><i class="fas fa-graduation-cap"></i></button>
+      <button class="nav-item" onclick="scrollToSection('projects')"><i class="fas fa-project-diagram"></i></button>
+      <button class="nav-item" onclick="scrollToSection('contact')"><i class="fas fa-envelope"></i></button>
+    </nav>
 
-    <!-- ABOUT -->
-    <div class="section">
-      <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
-      <p class="summary-text">Master of Science in Astronomy from Institut Teknologi Bandung with a strong foundation in data analysis, Python programming, and scientific research. Passionate about solving complex problems, deriving insights from data, and continuously exploring new tools, concepts, and technologies. Experienced in teaching, collaborative research, and astronomical data processing. Actively seeking opportunities in data science, analytics, and applied computational research.</p>
-    </div>
-
-    <!-- EDUCATION -->
-    <div class="section">
-      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-      <div class="education-item">
-        <div class="item-header">
-          <div>
-            <div class="item-title">Master of Science in Astronomy</div>
-            <div class="item-company">Institut Teknologi Bandung (ITB)</div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Vanda Sekar Annisa</h1>
+        <p class="hero-subtitle">Data Scientist & Master of Science</p>
+        <p class="hero-description">
+          Master of Science in Astronomy from Institut Teknologi Bandung with a strong foundation in data analysis, Python programming, and scientific research. Passionate about solving complex problems, deriving insights from data, and continuously exploring new tools, concepts, and technologies.
+        </p>
+      </div>
+      
+      <div class="profile-section">
+        <div class="profile-container">
+          <div class="profile-hexagon">
+            <img src="images/foto-sidang.jpg" alt="Vanda Sekar Annisa" class="profile-img">
           </div>
-          <div class="item-date">Accepted Aug 2025</div>
         </div>
-        <ul class="item-details">
-          <li>Focus: Data Analysis in Stellar and High-Energy Astrophysics</li>
-          <li>GPA: 3.93/4.00</li>
-        </ul>
+        
+        <div class="contact-floating">
+          <a href="tel:+6281257231667" class="contact-item">
+            <i class="fas fa-phone"></i>
+            (+62) 812-5723-1667
+          </a>
+          <a href="mailto:vanda.sekar272@gmail.com" class="contact-item">
+            <i class="fas fa-envelope"></i>
+            vanda.sekar272@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/vanseann272" class="contact-item" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn Profile
+          </a>
+        </div>
       </div>
+    </section>
 
-      <div class="education-item">
-        <div class="item-header">
-          <div>
-            <div class="item-title">Bachelor of Science in Astronomy</div>
-            <div class="item-company">Institut Teknologi Bandung (ITB)</div>
+    <!-- Content Grid -->
+    <div class="content-grid">
+      <!-- Education -->
+      <div class="section-card" id="education">
+        <h2 class="section-title">
+          <i class="fas fa-graduation-cap"></i>
+          Education
+        </h2>
+        <div class="education-timeline">
+          <div class="education-item">
+            <h3 class="education-title">Master of Science in Astronomy</h3>
+            <p class="education-institution">Institut Teknologi Bandung (ITB)</p>
+            <div class="education-details">
+              <ul>
+                <li>Focus: Data Analysis in Stellar and High-Energy Astrophysics</li>
+                <li>GPA: 3.93/4.00</li>
+                <li>Accepted Aug 2025</li>
+              </ul>
+            </div>
           </div>
-          <div class="item-date">Graduated Oct 2024</div>
-        </div>
-        <ul class="item-details">
-          <li>Relevant coursework: Statistical Methods, Programming in Python, Computational Astrophysics</li>
-          <li>GPA: 3.36/4.00</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- PROJECTS -->
-    <div class="section">
-      <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
-      <div class="projects-container">
-        <div class="project-card">
-          <a href="project-scaling-method.html">
-            <img src="images/GRO 05.png" alt="X-ray Scaling project" class="project-thumb">
-            <div class="project-info">
-              <h3 class="project-title">Revisiting the X-ray Scaling Method with MCMC</h3>
-              <p class="project-subtitle">Bayesian fitting and spectral analysis of BHXTs</p>
+          
+          <div class="education-item">
+            <h3 class="education-title">Bachelor of Science in Astronomy</h3>
+            <p class="education-institution">Institut Teknologi Bandung (ITB)</p>
+            <div class="education-details">
+              <ul>
+                <li>Relevant coursework: Statistical Methods, Programming in Python, Computational Astrophysics</li>
+                <li>GPA: 3.36/4.00</li>
+                <li>Graduated Oct 2024</li>
+              </ul>
             </div>
-          </a>
-        </div>
-
-        <div class="project-card">
-          <a href="project-galaxy-brightness.html">
-            <img src="images/Surface_Brightness_Comparison_NGC5585.png" alt="Galaxy Surface Brightness Modeling" class="project-thumb">
-            <div class="project-info">
-              <h3 class="project-title">Galaxy Surface Brightness Modeling</h3>
-              <p class="project-subtitle">Profile fitting with Sérsic and multi-component models</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="project-card">
-          <a href="project-cosmological-parameter.html">
-            <img src="images/corner_H0_Om0.png" alt="Cosmological Parameter Estimation" class="project-thumb">
-            <div class="project-info">
-              <h3 class="project-title">Cosmological Parameter Estimation</h3>
-              <p class="project-subtitle">ΛCDM model fitting with MCMC and observational data</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="project-card">
-          <a href="project-distance-estimation.html">
-            <img src="images/1 Gaia DR3 4301758223417056256.png" alt="Stellar Distance Estimation" class="project-thumb">
-            <div class="project-info">
-              <h3 class="project-title">Stellar Distance Estimation from Gaia DR3</h3>
-              <p class="project-subtitle">Bayesian distance inference using parallax data with multiple priors</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- SKILLS -->
-    <div class="section">
-      <h2 class="section-title"><i class="fas fa-cogs"></i> Skills & Interests</h2>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h3>Technical Skills</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Data Analysis</span>
-            <span class="skill-tag">Statistical Modeling</span>
-            <span class="skill-tag">Data Visualization</span>
-            <span class="skill-tag">Teaching</span>
-            <span class="skill-tag">Communication</span>
           </div>
         </div>
       </div>
+
+      <!-- Skills -->
+      <div class="section-card" id="skills">
+        <h2 class="section-title">
+          <i class="fas fa-cogs"></i>
+          Skills
+        </h2>
+        <div class="skills-constellation">
+          <div class="skill-node" style="top: 10%; left: 15%;">Python</div>
+          <div class="skill-node" style="top: 25%; left: 60%;">SQL</div>
+          <div class="skill-node" style="top: 45%; left: 20%;">Data Analysis</div>
+          <div class="skill-node" style="top: 35%; left: 75%;">Statistical Modeling</div>
+          <div class="skill-node" style="top: 65%; left: 40%;">Data Visualization</div>
+          <div class="skill-node" style="top: 80%; left: 10%;">Teaching</div>
+          <div class="skill-node" style="top: 75%; left: 70%;">Communication</div>
+          <div class="skill-node" style="top: 5%; left: 80%;">MCMC</div>
+          <div class="skill-node" style="top: 55%; left: 5%;">Astronomy</div>
+        </div>
+      </div>
     </div>
 
-    <!-- CTA -->
-    <div class="cta-section">
-      <h2 class="cta-title">Let's Connect!</h2>
-      <p class="cta-subtitle">Interested in data science, research collaboration, or astronomical insights?</p>
-      <div class="cta-buttons">
-        <a href="mailto:vanda.sekar272@gmail.com" class="cta-button"><i class="fas fa-envelope"></i> Send Email</a>
-        <a href="https://linkedin.com/in/vanseann272" class="cta-button" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+    <!-- Projects -->
+    <div class="section-card full-width" id="projects">
+      <h2 class="section-title">
+        <i class="fas fa-project-diagram"></i>
+        Featured Projects
+      </h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="images/GRO 05.png" alt="X-ray Scaling project" class="project-image">
+          <div class="project-info">
+            <h3 class="project-title">Revisiting the X-ray Scaling Method with MCMC</h3>
+            <p class="project-description">Bayesian fitting and spectral analysis of BHXTs using advanced statistical methods</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/Surface_Brightness_Comparison_NGC5585.png" alt="Galaxy Surface Brightness Modeling" class="project-image">
+          <div class="project-info">
+            <h3 class="project-title">Galaxy Surface Brightness Modeling</h3>
+            <p class="project-description">Profile fitting with Sérsic and multi-component models for astronomical data</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/corner_H0_Om0.png" alt="Cosmological Parameter Estimation" class="project-image">
+          <div class="project-info">
+            <h3 class="project-title">Cosmological Parameter Estimation</h3>
+            <p class="project-description">ΛCDM model fitting with MCMC and observational data analysis</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/1 Gaia DR3 4301758223417056256.png" alt="Stellar Distance Estimation" class="project-image">
+          <div class="project-info">
+            <h3 class="project-title">Stellar Distance Estimation from Gaia DR3</h3>
+            <p class="project-description">Bayesian distance inference using parallax data with multiple statistical priors</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section" id="contact">
+      <div class="cta-content">
+        <h2 class="cta-title">Let's Connect!</h2>
+        <p class="cta-subtitle">
+          Interested in data science, research collaboration, or astronomical insights? Let's explore the cosmos of possibilities together.
+        </p>
+        <div class="cta-buttons">
+          <a href="mailto:vanda.sekar272@gmail.com" class="cta-button">
+            <i class="fas fa-envelope"></i>
+            Send Email
+          </a>
+          <a href="https://linkedin.com/in/vanseann272" class="cta-button" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            Connect on LinkedIn
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Stars
-    function createParticles(){
-      const c=document.getElementById('stars');
-      for(let i=0;i<60;i++){
-        const s=document.createElement('div');
-        s.className='star';
-        s.style.left=Math.random()*100+'%';
-        s.style.top=Math.random()*100+'%';
-        s.style.animationDelay=Math.random()*3+'s';
-        s.style.animationDuration=(Math.random()*2+2)+'s';
-        c.appendChild(s);
+    // Enhanced star creation with different sizes and sparkle effects
+    function createStars() {
+      const container = document.getElementById('starsContainer');
+      const starCount = 150;
+      
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random star sizes
+        const size = Math.random();
+        if (size < 0.6) {
+          star.classList.add('small');
+        } else if (size < 0.9) {
+          star.classList.add('medium');
+        } else {
+          star.classList.add('large');
+        }
+        
+        // Random positions
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delays
+        star.style.animationDelay = Math.random() * 6 + 's';
+        star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        
+        container.appendChild(star);
       }
     }
-    createParticles();
+
+    // Smooth scrolling function
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+
+    // Parallax effect for stars
+    function handleParallax() {
+      const scrolled = window.pageYOffset;
+      const parallaxElements = document.querySelectorAll('.star');
+      const speed = 0.5;
+
+      parallaxElements.forEach((element, index) => {
+        const yPos = -(scrolled * speed * (index % 3 + 1) * 0.1);
+        element.style.transform = `translateY(${yPos}px)`;
+      });
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      createStars();
+      
+      // Add parallax scroll effect
+      window.addEventListener('scroll', handleParallax);
+      
+      // Add intersection observer for animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      // Observe all section cards
+      document.querySelectorAll('.section-card, .project-card').forEach((card) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+      });
+    });
+
+    // Add mouse movement effect to hero section
+    document.addEventListener('mousemove', function(e) {
+      const heroContent = document.querySelector('.hero-content');
+      if (heroContent) {
+        const rect = heroContent.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+        
+        const tiltX = deltaY * 10;
+        const tiltY = deltaX * -10;
+        
+        heroContent.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      }
+    });
+
+    // Reset hero tilt when mouse leaves
+    document.addEventListener('mouseleave', function() {
+      const heroContent = document.querySelector('.hero-content');
+      if (heroContent) {
+        heroContent.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      }
+    });
+
+    // Add typing effect to hero title
+    function typeWriter(element, text, speed = 100) {
+      let i = 0;
+      element.innerHTML = '';
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    // Initialize typing effect
+    setTimeout(() => {
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        typeWriter(heroTitle, originalText, 80);
+      }
+    }, 1000);
+
+    // Add floating animation to profile hexagon
+    const profileHexagon = document.querySelector('.profile-hexagon');
+    if (profileHexagon) {
+      let floatDirection = 1;
+      setInterval(() => {
+        floatDirection *= -1;
+        profileHexagon.style.transform = `translateY(${floatDirection * 10}px)`;
+      }, 3000);
+    }
+
+    // Add hover effect to skill nodes with connection lines
+    const skillNodes = document.querySelectorAll('.skill-node');
+    skillNodes.forEach((node, index) => {
+      node.addEventListener('mouseenter', function() {
+        // Highlight connected skills (simulate skill relationships)
+        const connections = [
+          [0, 2, 4], // Python, Data Analysis, Data Visualization
+          [1, 2, 3], // SQL, Data Analysis, Statistical Modeling
+          [3, 7, 8], // Statistical Modeling, MCMC, Astronomy
+          [5, 6], // Teaching, Communication
+        ];
+        
+        connections.forEach(group => {
+          if (group.includes(index)) {
+            group.forEach(nodeIndex => {
+              if (skillNodes[nodeIndex]) {
+                skillNodes[nodeIndex].style.background = 'rgba(52, 152, 219, 0.4)';
+                skillNodes[nodeIndex].style.transform = 'scale(1.1)';
+              }
+            });
+          }
+        });
+      });
+      
+      node.addEventListener('mouseleave', function() {
+        skillNodes.forEach(n => {
+          n.style.background = 'var(--glass)';
+          n.style.transform = 'scale(1)';
+        });
+      });
+    });
+
+    // Add dynamic background color changes based on scroll
+    window.addEventListener('scroll', function() {
+      const scrollPercent = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      
+      const hue1 = 210 + (scrollPercent * 0.2); // Blue range
+      const hue2 = 200 + (scrollPercent * 0.3);
+      const hue3 = 220 + (scrollPercent * 0.1);
+      
+      document.body.style.background = `linear-gradient(135deg, hsl(${hue1}, 70%, 35%) 0%, hsl(${hue2}, 65%, 40%) 30%, hsl(${hue3}, 75%, 45%) 60%, hsl(${hue1 + 10}, 80%, 50%) 100%)`;
+    });
+
+    // Add click ripple effect to buttons
+    function addRippleEffect(element) {
+      element.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    }
+
+    // Apply ripple effect to all buttons
+    document.querySelectorAll('.cta-button, .nav-item, .contact-item').forEach(addRippleEffect);
+
+    // Add CSS for ripple effect
+    const rippleCSS = `
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s ease-out;
+        pointer-events: none;
+      }
+      
+      @keyframes ripple-animation {
+        to {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+      
+      .cta-button, .nav-item, .contact-item {
+        position: relative;
+        overflow: hidden;
+      }
+    `;
+    
+    const style = document.createElement('style');
+    style.textContent = rippleCSS;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
