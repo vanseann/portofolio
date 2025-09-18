@@ -14,7 +14,7 @@
       font-family: 'Inter','Segoe UI',sans-serif;
       line-height: 1.6;
       color: #2d3748;
-      background: linear-gradient(135deg,#b8d9ff 0%,#5493db 50%,#1a202c 100%);
+      background: linear-gradient(135deg,#e0eaff 0%,#c0d8ff 50%,#f0f4ff 100%);
       min-height: 100vh; overflow-x: hidden; font-size: 16px;
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 2rem; position: relative; z-index: 1; }
@@ -26,65 +26,74 @@
 
     /* === HEADER === */
     .header {
-      display:flex; gap:2.5rem; background:rgba(255,255,255,0.98);
-      backdrop-filter:blur(20px); border-radius:24px; padding:2.5rem;
-      margin-bottom:2.5rem; box-shadow:0 25px 50px rgba(26,32,44,0.15);
+      display:flex; gap:2rem; background:rgba(255,255,255,0.95);
+      border-radius:20px; padding:2rem;
+      margin-bottom:2.5rem; box-shadow:0 15px 40px rgba(0,0,0,0.08);
       align-items:center; transition:.4s; position:relative; overflow:hidden;
     }
-    .header-left { width:300px; height:300px; }
-    .profile-img { width:100%; height:100%; border-radius:20px; overflow:hidden; border:4px solid rgba(255,255,255,.8); box-shadow:0 20px 50px rgba(102,126,234,.4); }
+    .header-left { width:250px; height:250px; }
+    .profile-img { width:100%; height:100%; border-radius:20px; overflow:hidden; border:3px solid rgba(255,255,255,.8); box-shadow:0 15px 35px rgba(74,144,226,.3); }
     .profile-photo { width:100%; height:100%; object-fit:cover; }
     .header-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
-    .name { font-size:clamp(3rem,6vw,4.5rem); font-weight:800; background:linear-gradient(135deg,#b8d9ff,#5493db); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
-    .title { font-size:1.8rem; color:#4a5568; margin-bottom:2rem; }
+    .name {
+      font-family: 'Poppins', sans-serif;
+      font-size:clamp(2.5rem,5vw,3.5rem); font-weight:700;
+      background: linear-gradient(135deg,#4a90e2,#0066cc);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      margin-bottom:1rem;
+    }
+    .title { font-size:1.5rem; color:#4a5568; margin-bottom:1.5rem; }
 
     /* === CONTACT === */
-    .contact-info { display:flex; flex-direction:column; gap:1rem; }
+    .contact-info { display:flex; flex-direction:column; gap:0.8rem; }
     .contact-item {
       display:flex; align-items:center; gap:1rem; color:#2d3748; text-decoration:none;
-      padding:1.2rem 1.8rem; border-radius:16px; background:rgba(102,126,234,.08);
-      border:1px solid rgba(102,126,234,.15); font-size:1.1rem; max-width:380px;
+      padding:0.9rem 1.5rem; border-radius:14px; background:rgba(74,144,226,.08);
+      border:1px solid rgba(74,144,226,.15); font-size:1rem; max-width:350px;
+      transition: all 0.3s ease;
     }
-    .contact-item i { color:#b8d9ff; }
+    .contact-item i { color:#4a90e2; }
+    .contact-item:hover { background:rgba(74,144,226,.15); transform:translateY(-2px); }
 
     /* === SECTION === */
     .section {
-      background:rgba(255,255,255,.98); backdrop-filter:blur(20px);
-      border-radius:24px; padding:3rem; margin-bottom:2.5rem;
-      box-shadow:0 25px 50px rgba(26,32,44,.1);
+      background:rgba(255,255,255,.95);
+      border-radius:20px; padding:2.5rem; margin-bottom:2rem;
+      box-shadow:0 15px 40px rgba(0,0,0,.08);
     }
-    .section-title { font-size:2.2rem; font-weight:700; color:#1a202c; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
-    .summary-text { font-size:1.15rem; line-height:1.8; text-align:justify; color:#4a5568; }
+    .section-title { font-size:2rem; font-weight:700; color:#1a202c; margin-bottom:1.5rem; display:flex; align-items:center; gap:1rem; }
+    .summary-text { font-size:1.1rem; line-height:1.7; text-align:justify; color:#4a5568; }
 
     /* === EDUCATION ITEMS === */
-    .education-item { margin-bottom:2rem; padding:2rem; border-radius:20px; background:rgba(102,126,234,.06); border:1px solid rgba(102,126,234,.15); }
+    .education-item { margin-bottom:1.8rem; padding:1.8rem; border-radius:16px; background:rgba(74,144,226,.06); border:1px solid rgba(74,144,226,.15); }
     .item-header { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
-    .item-title { font-size:1.4rem; font-weight:700; }
-    .item-company { font-size:1.1rem; color:#5493db; }
-    .item-date { font-size:.95rem; padding:.5rem 1rem; border-radius:20px; background:rgba(102,126,234,.1); }
+    .item-title { font-size:1.25rem; font-weight:700; }
+    .item-company { font-size:1.05rem; color:#0066cc; }
+    .item-date { font-size:0.9rem; padding:0.4rem 0.8rem; border-radius:16px; background:rgba(74,144,226,.1); }
 
     /* === PROJECTS === */
-    .projects-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2rem; }
-    .project-card { border-radius:20px; overflow:hidden; background:#fff; box-shadow:0 15px 40px rgba(0,0,0,.1); transition:.3s; }
-    .project-card:hover { transform:translateY(-8px); }
-    .project-thumb { width:100%; height:auto; display:block; }
-    .project-info { padding:1.5rem; }
-    .project-title { font-size:1.3rem; font-weight:700; }
+    .projects-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.8rem; }
+    .project-card { border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.08); transition:.3s; }
+    .project-card:hover { transform:translateY(-5px); box-shadow:0 15px 40px rgba(0,0,0,.12); }
+    .project-thumb { width:100%; height:200px; object-fit:cover; display:block; }
+    .project-info { padding:1.2rem; }
+    .project-title { font-size:1.25rem; font-weight:700; }
     .project-subtitle { font-size:1rem; color:#4a5568; }
 
     /* === SKILLS === */
-    .skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-    .skill-category { padding:2rem; border-radius:20px; background:rgba(102,126,234,.08); }
-    .skill-category h3 { font-size:1.3rem; font-weight:700; margin-bottom:1.5rem; }
-    .skill-tags { display:flex; flex-wrap:wrap; gap:.8rem; }
-    .skill-tag { background:linear-gradient(135deg,#b8d9ff,#5493db); color:#fff; padding:.7rem 1.2rem; border-radius:25px; font-size:.9rem; }
+    .skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.8rem; }
+    .skill-category { padding:1.8rem; border-radius:16px; background:#f5f8ff; box-shadow:0 5px 20px rgba(0,0,0,.05); }
+    .skill-category h3 { font-size:1.2rem; font-weight:700; margin-bottom:1rem; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:.7rem; }
+    .skill-tag { background:#4a90e2; color:#fff; padding:.6rem 1rem; border-radius:25px; font-size:.9rem; }
 
     /* === CTA === */
-    .cta-section { text-align:center; background:linear-gradient(135deg,#b8d9ff,#5493db); color:#fff; padding:4rem 3rem; border-radius:24px; }
-    .cta-title { font-size:2.8rem; font-weight:800; }
-    .cta-subtitle { font-size:1.2rem; margin:1rem auto 2rem; max-width:600px; }
-    .cta-buttons { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
-    .cta-button { padding:1rem 2rem; border-radius:30px; background:rgba(255,255,255,.15); color:#fff; text-decoration:none; font-weight:700; }
+    .cta-section { text-align:center; background:linear-gradient(135deg,#4a90e2,#0066cc); color:#fff; padding:3.5rem 2.5rem; border-radius:20px; }
+    .cta-title { font-size:2.5rem; font-weight:700; }
+    .cta-subtitle { font-size:1.1rem; margin:1rem auto 1.5rem; max-width:600px; }
+    .cta-buttons { display:flex; justify-content:center; gap:1.3rem; flex-wrap:wrap; }
+    .cta-button { padding:0.9rem 1.8rem; border-radius:30px; background:rgba(255,255,255,.15); color:#fff; text-decoration:none; font-weight:700; transition: all 0.3s ease; }
+    .cta-button:hover { transform:scale(1.05); background:rgba(255,255,255,.25); }
   </style>
 </head>
 <body>
@@ -146,57 +155,51 @@
       </div>
     </div>
 
-<!-- PROJECTS -->
-<div class="section">
-  <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
-  <div class="projects-container">
-    
-    <!-- Project 1 -->
-    <div class="project-card">
-      <a href="project-scaling-method.html">
-        <img src="images/GRO 05.png" alt="X-ray Scaling project" class="project-thumb">
-        <div class="project-info">
-          <h3 class="project-title">Revisiting the X-ray Scaling Method with MCMC</h3>
-          <p class="project-subtitle">Bayesian fitting and spectral analysis of BHXTs</p>
+    <!-- PROJECTS -->
+    <div class="section">
+      <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <a href="project-scaling-method.html">
+            <img src="images/GRO 05.png" alt="X-ray Scaling project" class="project-thumb">
+            <div class="project-info">
+              <h3 class="project-title">Revisiting the X-ray Scaling Method with MCMC</h3>
+              <p class="project-subtitle">Bayesian fitting and spectral analysis of BHXTs</p>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
 
-    <!-- Project 2 -->
-    <div class="project-card">
-      <a href="project-galaxy-brightness.html">
-        <img src="images/Surface_Brightness_Comparison_NGC5585.png" alt="Galaxy Surface Brightness Modeling" class="project-thumb">
-        <div class="project-info">
-          <h3 class="project-title">Galaxy Surface Brightness Modeling</h3>
-          <p class="project-subtitle">Profile fitting with Sérsic and multi-component models</p>
+        <div class="project-card">
+          <a href="project-galaxy-brightness.html">
+            <img src="images/Surface_Brightness_Comparison_NGC5585.png" alt="Galaxy Surface Brightness Modeling" class="project-thumb">
+            <div class="project-info">
+              <h3 class="project-title">Galaxy Surface Brightness Modeling</h3>
+              <p class="project-subtitle">Profile fitting with Sérsic and multi-component models</p>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
 
-    <!-- Project 3 -->
-    <div class="project-card">
-      <a href="project-cosmological-parameter.html">
-        <img src="images/corner_H0_Om0.png" alt="Cosmological Parameter Estimation" class="project-thumb">
-        <div class="project-info">
-          <h3 class="project-title">Cosmological Parameter Estimation</h3>
-          <p class="project-subtitle">ΛCDM model fitting with MCMC and observational data</p>
+        <div class="project-card">
+          <a href="project-cosmological-parameter.html">
+            <img src="images/corner_H0_Om0.png" alt="Cosmological Parameter Estimation" class="project-thumb">
+            <div class="project-info">
+              <h3 class="project-title">Cosmological Parameter Estimation</h3>
+              <p class="project-subtitle">ΛCDM model fitting with MCMC and observational data</p>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
 
-    <!-- Project 4 -->
-    <div class="project-card">
-      <a href="project-distance-estimation.html">
-        <img src="images/1 Gaia DR3 4301758223417056256.png" alt="Stellar Distance Estimation" class="project-thumb">
-        <div class="project-info">
-          <h3 class="project-title">Stellar Distance Estimation from Gaia DR3</h3>
-          <p class="project-subtitle">Bayesian distance inference using parallax data with multiple priors</p>
+        <div class="project-card">
+          <a href="project-distance-estimation.html">
+            <img src="images/1 Gaia DR3 4301758223417056256.png" alt="Stellar Distance Estimation" class="project-thumb">
+            <div class="project-info">
+              <h3 class="project-title">Stellar Distance Estimation from Gaia DR3</h3>
+              <p class="project-subtitle">Bayesian distance inference using parallax data with multiple priors</p>
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
-
-  </div> 
-</div> 
 
     <!-- SKILLS -->
     <div class="section">
@@ -204,7 +207,15 @@
       <div class="skills-container">
         <div class="skill-category">
           <h3>Technical Skills</h3>
-          <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Data Analysis</span><span class="skill-tag">Statistical Modeling</span><span class="skill-tag">Data Visualization</span><span class="skill-tag">Teaching</span><span class="skill-tag">Communication</span></div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Statistical Modeling</span>
+            <span class="skill-tag">Data Visualization</span>
+            <span class="skill-tag">Teaching</span>
+            <span class="skill-tag">Communication</span>
+          </div>
         </div>
       </div>
     </div>
@@ -224,7 +235,7 @@
     // Stars
     function createParticles(){
       const c=document.getElementById('stars');
-      for(let i=0;i<80;i++){
+      for(let i=0;i<60;i++){
         const s=document.createElement('div');
         s.className='star';
         s.style.left=Math.random()*100+'%';
